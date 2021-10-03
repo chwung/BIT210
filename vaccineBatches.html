@@ -38,30 +38,65 @@
                 <div class="row bg-info overflow-auto">
                     <h3>Center Name <br> address </h3> 
                 </div>
-                <div class="container-fluid row">
-                    <div class="col-6 bg-success">
-                        <div class="row">
-                            <P>First Vaccine</P>
+                <div class="py-2">
+                <table class="table table-bordered table-light table-striped table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Batch ID</th>
+                        <th scope="col">Number of Quantity</th>
+                        <th scope="col">Expiry Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td data-toggle="modal" data-target="#firstbatch" id="firstbatch">BatchNo</td>
+                        <td>No</td>
+                        <td>Date</td>
+                      </tr>
+                      <!-- Modal -->
+                      <div class="modal fade" id="firstbatch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Select a Date</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <input type="date">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Confirm</button>
+                            </div>
+                          </div>
                         </div>
-                        <div class="row">
-                            <p>Second Vaccine</p>
-                        </div>
-                        <div class="row">
-                            <p>Third Vaccine</p>
-                        </div>
-                    </div>
-                    <div class="col-6 bg-light">
-                        <div class="row">
-                            <p>Center Name</p>
-                            <p>Address</p>
-                        </div>
-                    </div>
+                      </div>
+                      
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>BatchNo</td>
+                        <td>No</td>
+                        <td>Date</td>
+                      </tr>
+
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>BatchNo</td>
+                        <td>No</td>
+                        <td>Date</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
             </div>
               </main>
         </div>
     </div>
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
