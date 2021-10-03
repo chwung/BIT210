@@ -5,11 +5,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="Staff.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-] </head>
+</head>
   <body>
     <div class="parent-container d-flex">
         <div class="container-fluid">
@@ -27,7 +28,7 @@
                                     <a class="nav-link pl-0" href="StaffAddBatch.html"><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link pl-0" href=""><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
+                                    <a class="nav-link pl-0" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -60,10 +61,73 @@
                                                     <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>P0000001</td>
+                                                        <td data-toggle = "modal" data-target="#approvalModal">P0000001</td>
+
+                                                        <!--Modal-->
+                                                        <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                <h5 class="modal-title" id="approvalLabel">VaccineID</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class=" container-fluid">
+                                                                        <div class="row">
+                                                                            <p class=" col-md-4">BatchNo</p>
+                                                                            <p class=" col-md-4">ExpiryDate</p>
+                                                                            <p class=" col-md-4">Manufacturer</p>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <p class=" col-md-4">Vaccine Name</p>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <p class=" col-md-4">Full Name</p>
+                                                                            <p class=" col-md-4">IC/Passport</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Reject</button>
+                                                                <button type="button" class="btn btn-primary" data-toggle = "modal" data-target="#confirmModal">Confirm</button>
+
+                                                                <!--Modal-->
+                                                                <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="mb-4">
+                                                                                <label for="Remarks" class="form-label font-weight-bold">Remarks</label>
+                                                                                <br>
+                                                                                <textarea class=" w-100" name="Remarks" id="remarks" rows="5" required></textarea>
+                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                    
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        
+
                                                         <td>00/00/00</td>
                                                         <td></td>
-                                                        <td>Comfirmed</td>
+                                                        <td>Pending</td>
 
                                                     </tr>
                                                     <tr>
@@ -78,7 +142,7 @@
                                                         <td>P0000003</td>
                                                         <td>00/00/00</td>
                                                         <td></td>
-                                                        <td>Pending</td>
+                                                        <td>Comfirmed</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
