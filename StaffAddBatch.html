@@ -13,7 +13,7 @@
 </head>
   <body>
             <!--Nav bar-->
-    <div class="container-fluid">
+    <div class="container-fluid bg-secondary">
         <div class="row min-vh-100 flex-column flex-md-row">
             <aside class="col-12 col-md-2 p-0 bg-danger flex-shrink-1">
                 <nav class="navbar navbar-expand navbar-dark bg-danger flex-md-column flex-row align-items-start py-2">
@@ -33,15 +33,84 @@
                     </div>
                 </nav>
             </aside>
-            <main class="col bg-faded py-3 flex-grow-1">
-                <h2>Add Batch</h2>
-                <p>
-                    
-                </p> 
-                <p>
-                    
-                </p> 
-            </main>
+
+            <div class="container">
+                <div class="row vh-100 align-items-center justify-content-center">
+                    <div class=" col-12 col-sm-8 col-md-6 col-lg-4 col-xl-12 bg-dark rounded p-5 shadow">
+                        <h4 class=" text-light">Add Batch</h4>
+                        <div class="parent-container d-flex">
+                            <div class="container">
+                                <div class="row h-100">
+                                    <div class="col-lg-11 bg-light">
+                                        <!--Trigger modal-->
+                                        <p class="h3 font-weight-bolder " data-toggle = "modal" data-target="#addBatchModal"D> + Add Batch</p>
+
+                                        <!--Modal-->
+                                        <div class="modal fade" id="addBatchModal" tabindex="-1" role="dialog" aria-labelledby="addBatchLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="addBatchLabel">Manufacturer - Vaccine Name</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-4">
+                                                        <label for="batchNumber" class="form-label font-weight-bold">Batch Number</label>
+                                                        <br>
+                                                        <input type="text" class="form-batchNumber" size="50" maxlength="30" placeholder="Batch Number" inputmode="numeric" required>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label for="expiryDate" class="form-label font-weight-bold">Expiry Date</label>
+                                                        <br>
+                                                        <input type="text" class="form-expiryDate" size="50" maxlength="30" placeholder="00/00/00" required>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label for="quantity" class="form-label font-weight-bold">Quantity</label>
+                                                        <br>
+                                                        <input type="text" class="form-quantity" size="50" maxlength="30" placeholder="0" inputmode="numeric" required>
+                                                    </div>
+                                                    
+                                                  
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 bg-light">
+                                        <ul class="list-group">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              VaccineID
+                                              <span class="badge badge-primary badge-pill">30</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              VaccineID
+                                              <span class="badge badge-primary badge-pill">20</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                              VaccineID
+                                              <span class="badge badge-primary badge-pill">40</span>
+                                            </li>
+                                          </ul>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>   
+                
+                    </div>
+            
+                </div>
+            </div>  
         </div>
     </div>
       
