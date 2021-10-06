@@ -43,7 +43,7 @@
                         <div class=" ccol-12 col-sm-10 col-md-8 col-lg-12 col-xl-12 bg-dark rounded p-5 shadow">
                             <div class="parent-container">
                                 <div class="container-flex">
-                                    <div class="col bg-light">
+                                    <!--<div class="col bg-light">
                                         <div class="row">
                                             <h1>Name</h1>
                                         </div>
@@ -56,6 +56,49 @@
                                         <div class="row">
                                             <h1>IC/Passport</h1>
                                         </div>
+                                    </div>-->
+                                    <div class="col bg-light">
+                                        <div class="row">
+                                            <p class=" h3 mb-4 mr-2 mt-2 ml-2">Username:</p>
+                                            <p class=" h3 mb-4 mt-2">Name</p>
+                                            <i class="fa fa-pencil fa-fw text-dark mt-2" data-toggle="modal" data-target="#username"></i>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="username" tabindex="-1" aria-labelledby="username" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="userName">Change Username?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <input type="text">
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Confirm</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <p class=" h3 mb-4 mr-2 ml-2">Password:</p>
+                                            <p class=" h3 mb-4">Password</p>
+                                            <i class="fa fa-pencil fa-fw text-dark"></i>
+                                        </div>
+                                        <div class="row">
+                                            <p class=" h3 mb-4 mr-2 ml-2">Email:</p>
+                                            <p class=" h3 mb-4">Email</p>
+                                            <i class="fa fa-pencil fa-fw text-dark"></i>
+                                        </div>
+                                        <div class="row">
+                                            <p class=" h3 mb-4 mr-2 ml-2">IC/Passport:</p>
+                                            <p class=" h3 mb-4">IC</p>
+                                            <i class="fa fa-pencil fa-fw text-dark"></i>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>   
