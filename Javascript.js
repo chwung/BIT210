@@ -10,7 +10,6 @@ class patient{
     }
 }
 
-
 function reset(){
     document.getElementById("form").reset;
 }
