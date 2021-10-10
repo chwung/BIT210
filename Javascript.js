@@ -2,7 +2,7 @@ var patientArray = [];
 var staffArray = [];
 
 class patient{
-    constructor(name,password, email, id){
+    constructor([name,password, email, id]){
         this.name = name;
         this.password = password;
         this.email = email;
@@ -44,20 +44,22 @@ function validatePatient(){
 }
 
 function patientSubmit(){
-    var name = document.getElementById("name");
-    var password = document.getElementById("password");
-    var email = document.getElementById("email");
-    var id = document.getElementById("id");
-
-    var newPatient = new patient(name, password, email, id);
-
+    var name = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var id = document.getElementById("id").value;
     
+    var newPatient = new patient([name, password, email, id]);
+
     patientArray.push(newPatient);
     console.log(patientArray);
+
+    
+    
 }
 
 class staff{
-    constructor(centreName, address, name, fullName, password, email, staffID){
+    constructor([centreName, address, name, fullName, password, email, staffID]){
         this.centreName = centreName;
         this.address = address;
         this.name = name;
@@ -120,7 +122,7 @@ function staffSubmit(){
     var email = document.getElementById("email");
     var staffID = document.getElementById("staffID");
 
-    var newStaff = new staff(centreName, address,name,fullName, password, email, staffID);
+    var newStaff = new staff([centreName, address,name,fullName, password, email, staffID]);
 
     
     staffArray.push(newStaff);
