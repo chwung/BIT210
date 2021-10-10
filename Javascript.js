@@ -9,8 +9,9 @@ class patient{
     }
 }
 
-var submit = document.getElementById("btn");
-submit.onclick = patientSubmit();
+var submit = document.getElementById("btnSubmit");
+submit.addEventListener("click", patientSubmit);
+
 
 function patientSubmit(){
     var name = document.getElementById("name");
@@ -21,7 +22,7 @@ function patientSubmit(){
     var newPatient = new patient(name, password, email, id);
 
     patientArray.push(newPatient);
-    console.log("HI")
+    console.log(patientArray);
 }
 
 class staff{
