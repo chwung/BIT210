@@ -30,7 +30,7 @@ function validatePatient(){
         return false;
     }
     else if (email == "") {
-        alert("email must be filled out");
+        alert("Email must be filled out");
         return false;
     }
     else if (id == "") {
@@ -68,6 +68,49 @@ class staff{
     }
 }
 
+function validateStaff(){
+    let centreName = document.forms["staffForm"]["centreName"].value;
+    let address = document.forms["staffForm"]["address"].value;
+    let name = document.forms["staffForm"]["name"].value;
+    let fullName = document.forms["staffForm"]["fullName"].value;
+    let password = document.forms["staffForm"]["password"].value;
+    let email = document.forms["staffForm"]["email"].value;
+    let staffID = document.forms["staffForm"]["staffID"].value;
+
+    if (centreName == "") {
+        alert("centreName must be filled out");
+        return false;
+    }
+    else if (address == "") {
+        alert("Address must be filled out");
+        return false;
+    }
+    else if (name == "") {
+        alert("Username must be filled out");
+        return false;
+    }
+    else if (fullName == "") {
+        alert("FullName must be filled out");
+        return false;
+    }
+    else if (password == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+    else if (email == "") {
+        alert("Email must be filled out");
+        return false;
+    }
+    else if (staffID == "") {
+        alert("staffID must be filled out");
+        return false;
+    }
+    else{
+        staffSubmit();
+        window.location.href = "Login.html";
+    }
+}
+
 function staffSubmit(){
     var centreName = document.getElementById("centreName");
     var address = document.getElementById("address");
@@ -82,5 +125,4 @@ function staffSubmit(){
     
     staffArray.push(newStaff);
     console.log(staffArray);
-    window.location.href = "Login.html";
 }
