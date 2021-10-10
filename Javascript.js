@@ -1,5 +1,5 @@
-var patientArray = [];
 var staffArray = [];
+var patientArray = [];
 
 class patient{
     constructor([name,password, email, id]){
@@ -8,12 +8,33 @@ class patient{
         this.email = email;
         this.id = id;
     }
+
+    getName(){
+        return this.name;
+    }
+
+    getPassword(){
+        return this.password;
+    }
+    
 }
 
 
 function reset(){
     document.getElementById("form").reset;
 }
+
+function patientLogin(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+        if(username == "Wong" && password == "12345"){
+            window.location.href = "PatientProfile.html";
+            alert("Still here")
+        
+    }
+}
+
 
 function validatePatient(){
     let name = document.forms["patientForm"]["name"].value;
