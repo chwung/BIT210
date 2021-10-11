@@ -106,8 +106,9 @@ function patientSubmit(){
     patientArray.push(newPatient);
     console.log(patientArray);
 
-    
-    
+
+
+
 }
 
 class staff{
