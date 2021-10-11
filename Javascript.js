@@ -58,12 +58,11 @@ function login(){
 }
 
 function changeUsername(){
-    alert("checkpoint");
     var newName = document.getElementById("newUsername").value;
 
     var name = document.getElementById("name");
 
-    name.innerHTML = newName;
+    document.getElementById("name").innerHTML = newName;
 }
 
 
