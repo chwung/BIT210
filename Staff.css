@@ -7,3 +7,8 @@ img{
     height: 50%;
     align-self: center;
 }
+
+td:hover{
+    color: red ;
+
+}
