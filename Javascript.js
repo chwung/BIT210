@@ -1,7 +1,3 @@
-var staffArray = [];
-var patientArray = [];
-
-
 class patient{
     constructor([name,password, email, id]){
         this.name = name;
@@ -17,7 +13,6 @@ class patient{
     getPassword(){
         return this.password;
     }
-    
 }
 
 function reset(){
@@ -56,8 +51,16 @@ function login(){
             alert('Invalid username or password');
             reset();
         }
-      }
-        
+      } 
+}
+
+function changeUsername(){
+    alert("checkpoint");
+    var newName = document.getElementById("newUsername").value;
+
+    var name = document.getElementById("name");
+
+    name.innerHTML = newName;
 }
 
 
@@ -175,3 +178,4 @@ function staffSubmit(){
     staffArray.push(newStaff);
     console.log(staffArray);
 }
+
