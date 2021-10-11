@@ -37,6 +37,9 @@ function login(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+
     for (var i = 0; i < patientUsername.length; i++) {
         if (username == patientUsername[i] && password == patientPassword[i]) {
           alert('Welcome ' + username);
