@@ -1,6 +1,7 @@
 var staffArray = [];
 var patientArray = [];
 
+
 class patient{
     constructor([name,password, email, id]){
         this.name = name;
@@ -23,15 +24,40 @@ function reset(){
     document.getElementById("form").reset;
 }
 
-function patientLogin(){
+function login(){
+    var patientUsername = [
+        'John', 'Steve', 'Alex'
+    ];
+    var patientPassword = [
+        'Johnpassword', 'Stevepassword', 'Alexpassword'
+    ];
+
+    var staffUsername = [
+        'Staff1', 'Staff2', 'Staff3'
+    ]
+    var staffPassword = [
+        'password1', 'password2', 'password3'
+    ]
+
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-        if(username == "Wong" && password == "12345"){
-            window.location.href = "PatientProfile.html";
-            alert("Still here")
+    for (var i = 0; i < patientUsername.length; i++) {
+        if (username == patientUsername[i] && password == patientPassword[i]) {
+          alert('Welcome ' + username);
+          window.location.href = "PatientProfile.html";
+          break;
+        } else if(username == staffUsername[i] && password == staffPassword[i]){
+            alert('Welcome ' + username);
+            window.location.href = "StaffProfile.html";
+            break;
+        }
+        else{
+            alert('Invalid username or password');
+            reset();
+        }
+      }
         
-    }
 }
 
 
