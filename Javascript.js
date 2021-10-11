@@ -1,7 +1,3 @@
-var staffArray = [];
-var patientArray = [];
-
-
 class patient{
     constructor([name,password, email, id]){
         this.name = name;
@@ -56,9 +52,9 @@ function login(){
             alert('Invalid username or password');
             reset();
         }
-      }
-        
+      } 
 }
+
 
 
 function validatePatient(){
