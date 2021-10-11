@@ -61,7 +61,7 @@
                                     <div class="col bg-light">
                                         <div class="row">
                                             <p class=" h3 mb-4 mr-2 mt-2 ml-2">Username:</p>
-                                            <p class=" h3 mb-4 mt-2">Name</p>
+                                            <p class=" h3 mb-4 mt-2" id="name">Name</p>
                                             <i class="fa fa-pencil fa-fw text-dark mt-2" data-toggle="modal" data-target="#username"></i>
                                         </div>
                                         <!-- Modal -->
@@ -69,17 +69,14 @@
                                             <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                <h5 class="modal-title" id="userName">Change Username?</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                <h5 class="modal-title">Change Username?</h5>
                                                 </div>
                                                 <div class="modal-body">
-                                                <input type="text">
+                                                <input type="text" id="newUsername">
                                                 </div>
                                                 <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Confirm</button>
+                                                <button type="button" class="btn btn-primary" id="confirm">Confirm</button>
                                                 </div>
                                             </div>
                                             </div>

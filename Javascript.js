@@ -13,7 +13,6 @@ class patient{
     getPassword(){
         return this.password;
     }
-    
 }
 
 function reset(){
@@ -55,6 +54,14 @@ function login(){
       } 
 }
 
+function changeUsername(){
+    alert("checkpoint");
+    var newName = document.getElementById("newUsername").value;
+
+    var name = document.getElementById("name");
+
+    name.innerHTML = newName;
+}
 
 
 function validatePatient(){
@@ -170,3 +177,4 @@ function staffSubmit(){
     staffArray.push(newStaff);
     console.log(staffArray);
 }
+
