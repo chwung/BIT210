@@ -1,3 +1,5 @@
+
+//Constructor for patient
 class patient{
     constructor([name,password, email, id]){
         this.name = name;
@@ -15,10 +17,12 @@ class patient{
     }
 }
 
+//Reset button for register pages
 function reset(){
     document.getElementById("form").reset;
 }
 
+//login in to the system with fixed username and password for staff and patient
 function login(){
     var patientUsername = [
         'John', 'Steve', 'Alex'
@@ -29,16 +33,22 @@ function login(){
 
     var staffUsername = [
         'Staff1', 'Staff2', 'Staff3'
-    ]
+    ];
     var staffPassword = [
         'password1', 'password2', 'password3'
-    ]
+    ];
+
+    var centreName = [
+        'Kuala Lumpur Convention Centre','Setia City Convention Centre','Axiata Arena Bukit Jalil Centre'
+    ];
 
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    var centre = document.getElementById("centreName");
 
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
+    localStorage.setItem("centreName", centre);
 
     for (var i = 0; i < patientUsername.length; i++) {
         if (username == patientUsername[i] && password == patientPassword[i]) {
@@ -47,6 +57,7 @@ function login(){
           break;
         } else if(username == staffUsername[i] && password == staffPassword[i]){
             alert('Welcome ' + username);
+            centre == centreName[i];
             window.location.href = "StaffProfile.html";
             break;
         }
@@ -54,9 +65,11 @@ function login(){
             alert('Invalid username or password');
             reset();
         }
-      } 
+    } 
+
 }
 
+//Edit user username in the their profile
 function changeUsername(){
     var newName = document.getElementById("newUsername").value;
 
@@ -65,7 +78,7 @@ function changeUsername(){
     document.getElementById("name").innerHTML = newName;
 }
 
-
+//For Patient register page to check validation for the patient input
 function validatePatient(){
     let name = document.forms["patientForm"]["name"].value;
     let password = document.forms["patientForm"]["password"].value;
@@ -94,6 +107,7 @@ function validatePatient(){
     }
 }
 
+//The patient input in the patient register will be saved in an array.
 function patientSubmit(){
     var name = document.getElementById("name").value;
     var password = document.getElementById("password").value;
@@ -105,11 +119,9 @@ function patientSubmit(){
     patientArray.push(newPatient);
     console.log(patientArray);
 
-
-
-
 }
 
+//constructor for stuff
 class staff{
     constructor([centreName, address, name, fullName, password, email, staffID]){
         this.centreName = centreName;
@@ -122,6 +134,7 @@ class staff{
     }
 }
 
+//For Staff register page to check validation for the staff input
 function validateStaff(){
     let centreName = document.forms["staffForm"]["centreName"].value;
     let address = document.forms["staffForm"]["address"].value;
@@ -165,6 +178,7 @@ function validateStaff(){
     }
 }
 
+//The Staff input in the staff register will be saved in an array.
 function staffSubmit(){
     var centreName = document.getElementById("centreName");
     var address = document.getElementById("address");
