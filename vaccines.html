@@ -20,7 +20,7 @@
                     <div class="collapse navbar-collapse ">
                         <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
                             <li class="nav-item">
-                                <img src="Vaccine_Icon.png" alt="Vaccine Logo"  class="img-fluid d-none d-md-inline" >
+                                <img src="Vaccine_Icon.png" alt="Vaccine Logo"  class="img-fluid d-none d-md-inline">
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-0" href="PatientProfile.html"><i class="fa fa-user-circle fa-fw"></i> <span class="d-none d-md-inline">Profile</span></a>
@@ -47,17 +47,17 @@
                                     <div class="row" id="vaccine">
                                         <div class="col-6 bg-secondary">
                                             <div class="row">
-                                                <a class="btn btn-secondary btn-block" role="button" data-toggle="collapse" href="#Pfizer" aria-expanded="false" aria-controls="Pfizer">
+                                                <a class="btn btn-secondary btn-block" onclick="selectVaccine('Pfizer')" id="Vac1" role="button" data-toggle="collapse" href="#Pfizer" aria-expanded="false" aria-controls="Pfizer">
                                                     Pfizer
                                                   </a>
                                             </div>
                                             <div class="row">
-                                                <a class="btn btn-secondary btn-block" role="button" data-toggle="collapse" href="#Sino" aria-expanded="false" aria-controls="sino">
+                                                <a class="btn btn-secondary btn-block" onclick="selectVaccine('Sinovac')" role="button" data-toggle="collapse" href="#Sino" aria-expanded="false" aria-controls="sino">
                                                     Sinovac
                                                   </a>
                                             </div>
                                             <div class="row">
-                                                <a class="btn btn-secondary btn-block" role="button" data-toggle="collapse" href="#Astra" aria-expanded="false" aria-controls="Astra">
+                                                <a class="btn btn-secondary btn-block" onclick="selectVaccine('Astra')" role="button" data-toggle="collapse" href="#Astra" aria-expanded="false" aria-controls="Astra">
                                                     Astra
                                                   </a>
                                             </div>
@@ -65,17 +65,17 @@
                                         <div class="col-6 bg-light collapse" id="Pfizer" data-parent="#vaccine">
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name (Pfizer) <br> Address</p>
+                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Pfizer)</p>
                                                 </a>
                                             </div>
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
+                                                <p onclick="selectCenter('Setia City Convention Centre')">Setia City Convention Centre</p>
                                                 </a>
                                             </div>
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
+                                                <p onclick="selectCenter('Axiata Arena Bukit Jalil Centre')">Axiata Arena Bukit Jalil Centre</p>
                                                 </a>
                                             </div>
                                             <div class="row">
@@ -87,17 +87,17 @@
                                         <div class="col-6 bg-light collapse" id="Sino" data-parent="#vaccine">
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name (Sino) <br> Address</p>
+                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Sino)</p>
                                                 </a>
                                             </div>
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
+                                                <p onclick="selectCenter('Setia City Convention Centre')">Setia City Convention Center</p>
                                                 </a>
                                             </div>
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
+                                                <p onclick="selectCenter('Axiata Arena Bukit Jalil Centre')">Axiata Arena Bukit Jalil Center</p>
                                                 </a>
                                             </div>
                                             <div class="row">
@@ -109,17 +109,17 @@
                                         <div class="col-6 bg-light collapse" id="Astra" data-parent="#vaccine">
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name (Astra) <br> Address</p>
+                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Astra)</p>
                                                 </a>
                                             </div>
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
+                                                <p onclick="selectCenter('Setia City Convention Centre')">Setia City Convention Center</p>
                                                 </a>
                                             </div>
                                             <div class="row">
                                                 <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
+                                                <p onclick="selectCenter('Axiata Arena Bukit Jalil Centre')">Axiata Arena Bukit Jalil Center</p>
                                                 </a>
                                             </div>
                                             <div class="row">
@@ -143,5 +143,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <script src="Javascript.js"></script>
+</body>
 </html>

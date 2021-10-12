@@ -195,3 +195,11 @@ function staffSubmit(){
     console.log(staffArray);
 }
 
+function selectCenter(center){
+    localStorage.setItem("center", center)
+}
+
+function selectVaccine(vaccine){
+    localStorage.setItem("vaccine", vaccine);
+}
+
