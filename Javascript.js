@@ -44,28 +44,43 @@ function login(){
 
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var centre = document.getElementById("centreName");
+
 
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
-    localStorage.setItem("centreName", centre);
+    
+    if (username == patientUsername[0] && password == patientPassword[0]) {
+        alert('Welcome ' + username);
+        window.location.href = "PatientProfile.html";
+    } else if (username == patientUsername[1] && password == patientPassword[1]) {
+        alert('Welcome ' + username);
+        window.location.href = "PatientProfile.html";
+    }
+    else if (username == patientUsername[2] && password == patientPassword[2]) {
+        alert('Welcome ' + username);
+        window.location.href = "PatientProfile.html";
+      
+    }else if(username == staffUsername[0] && password == staffPassword[0]){
+        alert('Welcome ' + username);
+        var centre = centreName[0];
+        localStorage.setItem("centreName", centre);
+        window.location.href = "StaffProfile.html";
+    }else if(username == staffUsername[1] && password == staffPassword[1]){
+        alert('Welcome ' + username);
+        var centre = centreName[1];
+        localStorage.setItem("centreName", centre);
+        window.location.href = "StaffProfile.html";
+    }else if(username == staffUsername[2] && password == staffPassword[2]){
+        alert('Welcome ' + username);
+        var centre = centreName[2];
+        localStorage.setItem("centreName", centre);
+        window.location.href = "StaffProfile.html";
+    }else{
+        alert("Username or password is invalid");
+        reset();
+    }
 
-    for (var i = 0; i < patientUsername.length; i++) {
-        if (username == patientUsername[i] && password == patientPassword[i]) {
-          alert('Welcome ' + username);
-          window.location.href = "PatientProfile.html";
-          break;
-        } else if(username == staffUsername[i] && password == staffPassword[i]){
-            alert('Welcome ' + username);
-            centre == centreName[i];
-            window.location.href = "StaffProfile.html";
-            break;
-        }
-        else{
-            alert('Invalid username or password');
-            reset();
-        }
-    } 
+        
 
 }
 
@@ -201,5 +216,22 @@ function selectCenter(center){
 
 function selectVaccine(vaccine){
     localStorage.setItem("vaccine", vaccine);
+}
+
+function addBatch(){
+    var vaccineName = document.getElementById("vaccineName").value;
+    var batchNumber = document.getElementById("batchNumber").value;
+    var expiryDate = document.getElementById("expiryDate").value;
+    var quantity = document.getElementById("quantity").value;
+
+    var li = document.createElement("li");
+    var span = document.createElement("span");
+
+    li.appendChild(batchNumber);
+    span.appendChild(quantity);
+    li.appendChild(span);
+
+    var list = document.getElementById("listBatch");
+    list.appendChild(li);
 }
 
