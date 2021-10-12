@@ -210,3 +210,20 @@ function staffSubmit(){
     console.log(staffArray);
 }
 
+function addBatch(){
+    var vaccineName = document.getElementById("vaccineName").value;
+    var batchNumber = document.getElementById("batchNumber").value;
+    var expiryDate = document.getElementById("expiryDate").value;
+    var quantity = document.getElementById("quantity").value;
+
+    var li = document.createElement("li");
+    var span = document.createElement("span");
+
+    li.appendChild(batchNumber);
+    span.appendChild(quantity);
+    li.appendChild(span);
+
+    var list = document.getElementById("listBatch");
+    list.appendChild(li);
+}
+
