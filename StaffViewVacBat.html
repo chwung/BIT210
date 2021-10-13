@@ -22,13 +22,13 @@
                                 <img src="Vaccine_Icon.png" alt="Vaccine Logo" class="img-fluid col-1 col-sm-1 col-md-1 col-lg-8 d-none d-md-inline">
 
                                 <li class="nav-item">
-                                    <a class="nav-link pl-0" href="StaffProfile.html"><i class="fa fa-book fa-fw text-dark "></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Profile</span></a>
+                                    <a class="nav-link pl-0 border-bottom border-dark" href="StaffProfile.html"><i class="fa fa-book fa-fw text-dark "></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Profile</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link pl-0" href="StaffAddBatch.html"><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
+                                    <a class="nav-link pl-0 border-bottom border-dark" href="StaffAddBatch.html"><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link pl-0" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
+                                    <a class="nav-link pl-0 border-bottom border-dark" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
                                 </li>
                                 <li class="nav-item active">
                                     <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Log Out</span></a>
@@ -94,8 +94,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Reject</button>
-                                                                <button type="button" class="btn btn-primary" data-toggle = "modal" data-target="#confirmModal">Confirm</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reject()">Reject</button>
+                                                                <button type="button" class="btn btn-primary" data-toggle = "modal" data-target="#confirmModal" onclick="approve()">Confirm</button>
 
                                                                 <!--Modal-->
                                                                 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmLabel" aria-hidden="true">
@@ -116,7 +116,7 @@
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                                        <button type="button" class="btn btn-primary" onclick="setRemarks()" data-dismiss="modal">Save changes</button>
                                                                         </div>
                                                                     </div>
                                                                     </div>
@@ -129,8 +129,8 @@
                                                         
 
                                                         <td>00/00/00</td>
-                                                        <td></td>
-                                                        <td>Pending</td>
+                                                        <td id="comment"></td>
+                                                        <td id="pending">Pending</td>
 
                                                     </tr>
                                                     <tr>
@@ -173,5 +173,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
+  <script src="Javascript.js"></script>
   
 </html>

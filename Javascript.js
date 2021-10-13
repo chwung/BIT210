@@ -39,7 +39,7 @@ function login(){
     ];
 
     var centreName = [
-        'Kuala Lumpur Convention Centre','Setia City Convention Centre','Axiata Arena Bukit Jalil Centre'
+        'Kuala Lumpur Convention Centre','Setia City Centre','Axiata Arena Bukit Jalil Centre'
     ];
 
     var username = document.getElementById("username").value;
@@ -218,13 +218,15 @@ function selectVaccine(vaccine){
     localStorage.setItem("vaccine", vaccine);
 }
 
+//When add batch the list on the right will change to the input by the user and the table in StaffViewBatch.html 
+//will also show the input of the user
 function addBatch(){
     var vaccineName = document.getElementById("vaccineName").value;
     var batchNumber = document.getElementById("batchNumber").value;
     var expiryDate = document.getElementById("expiryDate").value;
     var quantity = document.getElementById("quantity").value;
 
-    var li = document.createElement("li");
+    /*var li = document.createElement("li");
     var span = document.createElement("span");
 
     li.appendChild(batchNumber);
@@ -232,6 +234,60 @@ function addBatch(){
     li.appendChild(span);
 
     var list = document.getElementById("listBatch");
-    list.appendChild(li);
+    list.appendChild(li);*/
+
+    localStorage.setItem("batchNumber", batchNumber);
+    localStorage.setItem("available", quantity);
+    localStorage.setItem("expiryDate", expiryDate);
+
+    if (vaccineName == "") {
+        alert("Vaccine name must be filled out");
+        return false;
+    }else if (batchNumber == "") {
+        alert("Batch number must be filled out");
+        return false;
+    }else if (expiryDate == "") {
+        alert("Expiry date must be filled out");
+        return false;
+    }else if (quantity == "") {
+        alert("Quantity must be filled out");
+        return false;
+    }
+
+    document.getElementById("batch1").innerHTML = batchNumber;
+    //document.getElementById("quantity1").innerHTML = quantity;
 }
+
+//when the user click on a vaccine at StaffViewVaccine.html, the name of the vaccine will show at the heading of StaffViewBatch.html
+function vaccineName(){
+    var pfizer = document.getElementById("pfizer").value;
+    var sinovac = document.getElementById("sinovac").value;
+    var astrazeneca = document.getElementById("astrazeneca").value;
+
+    localStorage.setItem("vaccineName", pfizer);
+    localStorage.setItem("vaccineName", sinovac);
+    localStorage.setItem("vaccineName", astrazeneca);
+
+}
+
+//to approve the patient request of the vaccine
+function approve(){
+
+    document.getElementById("pending").innerHTML = "Confirmed";
+
+}
+
+//to reject the patient request of the vaccine
+function reject(){
+    document.getElementById("pending").innerHTML = "Rejected";
+}
+
+//to set any remarks for the patient request of the vaccine
+function setRemarks(){
+    var remark = document.getElementById("remarks").value
+
+    document.getElementById("comment").innerHTML = remark;
+}
+
+
 

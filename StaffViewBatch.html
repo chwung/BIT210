@@ -23,16 +23,16 @@
                                 <img src="Vaccine_Icon.png" alt="Vaccine Logo" class="img-fluid col-1 col-sm-1 col-md-1 col-lg-8 d-none d-md-inline">
 
                                 <li class="nav-item">
-                                    <a class="nav-link pl-0" href="StaffProfile.html"><i class="fa fa-book fa-fw text-dark "></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Profile</span></a>
+                                    <a class="nav-link pl-0 border-bottom border-dark" href="StaffProfile.html"><i class="fa fa-book fa-fw text-dark "></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Profile</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link pl-0" href="StaffAddBatch.html"><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
+                                    <a class="nav-link pl-0 border-bottom border-dark" href="StaffAddBatch.html"><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link pl-0" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
+                                    <a class="nav-link pl-0 border-bottom border-dark" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Log Out</span></a>
+                                    <a class="nav-link pl-0 ml-3 fixed-bottom " href="login.html"><i class="fa fa-unlock-alt fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Log Out</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -40,7 +40,7 @@
                 </aside>
                 <main class="col bg-secondary">
                     <div>
-                        <p class="row h1 border-bottom border-dark ml-4 p-3 text-light ">Vaccine Name</p>
+                        <p class="row h1 border-bottom border-dark ml-4 p-3 text-light " id="vaccineName">Vaccine Name</p>
                     </div>
                     
                 
@@ -65,24 +65,24 @@
                                                     <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">B0000001</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">10</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" id="batchNumber">B0000001</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" id="available">10</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" id="expiryDate">00/00/00</a></td>
                                                         <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">2</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">2</th>
-                                                        <td>B0000002</td>
-                                                        <td>30</td>
-                                                        <td>00/00/00</td>
-                                                        <td>10</td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">B0000002</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">30</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">10</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">3</th>
-                                                        <td>B0000003</td>
-                                                        <td>20</td>
-                                                        <td>00/00/00</td>
-                                                        <td>15</td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">B0000003</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">20</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
+                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">15</a></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -107,5 +107,8 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="Javascript.js"></script>
+        <script src="VaccineName.js"></script>
+        <script src="BatchID.js"></script>
     </body>
 </html>
