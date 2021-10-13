@@ -21,13 +21,13 @@
                         <ul class="flex-lg-column flex-row navbar-nav w-100 justify-content-between">
                             <img src="Vaccine_Icon.png" alt="Vaccine Logo" class="img-fluid col-1 col-sm-1 col-md-1 col-lg-8 d-none d-md-inline">
                             <li class="nav-item">
-                                <a class="nav-link pl-0 border-bottom border-dark" href="StaffProfile.html"><i class="fa fa-book fa-fw text-dark "></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Profile</span></a>
+                                <a class="nav-link pl-0" href="StaffProfile.html"><i class="fa fa-book fa-fw text-dark "></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Profile</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0 border-bottom border-dark" href=""><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
+                                <a class="nav-link pl-0" href=""><i class="fa fa-plus fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Add Batch</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link pl-0 border-bottom border-dark" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
+                                <a class="nav-link pl-0" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">View Batch</span></a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw text-dark"></i> <span class="d-none d-md-inline text-dark font-weight-bolder">Log Out</span></a>
@@ -53,16 +53,24 @@
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                               <div class="modal-content">
                                                 <div class="modal-header">
-                                                  <h5 class="modal-title" id="addBatchLabel">Manufacturer - Vaccine Name</h5>
+                                                  <h5 class="modal-title" id="addBatchLabel">Add Batch</h5>
                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                   </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="mb-4">
-                                                        <label for="vaccineName" class="form-label font-weight-bold">Vaccine Name</label>
+                                                        <label for="batchNumber" class="form-label font-weight-bold">VaccineID</label>
                                                         <br>
-                                                        <input type="text" class="form-vaccineName" size="50" maxlength="30" placeholder="VaccineName" id="vaccineName" required>
+                                                        <select id="Select" class="form-control" >
+                                                            <option value="pfizer">P0000001 - Pfizer</option>
+                                                            <option value="sinovac">S0000001 - Sinovac</option>
+                                                            <option value="astrazeneca">A0000001 - AstraZeneca</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label id="manufacturer" class="form-label font-weight-bold">Manufacturer: </label>
+                                                        <label id="manufacturerName" class="form-label font-weight-bold">Pfizer Inc.</label>
                                                     </div>
                                                     <div class="mb-4">
                                                         <label for="batchNumber" class="form-label font-weight-bold">Batch Number</label>
@@ -84,7 +92,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="button" class="btn btn-primary" onclick="addBatch()">Save changes</button>
+                                                  <button type="button" class="btn btn-primary" onclick="addBatch()" data-dismiss="moda">Save changes</button>
                                                 </div>
                                               </div>
                                             </div>
@@ -99,8 +107,9 @@
                                         <ul class="list-group" id="listbatch">
                                             <li class="list-group-item d-flex justify-content-between align-items-center form-control" id="batch1">
                                               VaccineID
-                                              <span class="badge badge-primary badge-pill" id="quantity1">30</span>
+                                              <span class="badge badge-primary badge-pill" id="number">30</span>
                                             </li>
+
                                             <li class="list-group-item d-flex justify-content-between align-items-center form-control">
                                               VaccineID
                                               <span class="badge badge-primary badge-pill">20</span>
@@ -127,7 +136,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="#"></script>
     <script src="Javascript.js"></script>
+    <script src="SelectVaccine.js"></script>
     </body>
 </html>

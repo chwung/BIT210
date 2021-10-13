@@ -1,3 +1,5 @@
+patientArray = [];
+staffArray = [];
 
 //Constructor for patient
 class patient{
@@ -220,30 +222,17 @@ function selectVaccine(vaccine){
 
 //When add batch the list on the right will change to the input by the user and the table in StaffViewBatch.html 
 //will also show the input of the user
+
 function addBatch(){
-    var vaccineName = document.getElementById("vaccineName").value;
     var batchNumber = document.getElementById("batchNumber").value;
     var expiryDate = document.getElementById("expiryDate").value;
     var quantity = document.getElementById("quantity").value;
 
-    /*var li = document.createElement("li");
-    var span = document.createElement("span");
-
-    li.appendChild(batchNumber);
-    span.appendChild(quantity);
-    li.appendChild(span);
-
-    var list = document.getElementById("listBatch");
-    list.appendChild(li);*/
-
     localStorage.setItem("batchNumber", batchNumber);
     localStorage.setItem("available", quantity);
     localStorage.setItem("expiryDate", expiryDate);
-
-    if (vaccineName == "") {
-        alert("Vaccine name must be filled out");
-        return false;
-    }else if (batchNumber == "") {
+    
+    if (batchNumber == "") {
         alert("Batch number must be filled out");
         return false;
     }else if (expiryDate == "") {
@@ -254,20 +243,26 @@ function addBatch(){
         return false;
     }
 
+
     document.getElementById("batch1").innerHTML = batchNumber;
-    //document.getElementById("quantity1").innerHTML = quantity;
+    document.getElementById("batch1").nextSibling.nodeValue = quantity;
+
+    
 }
 
 //when the user click on a vaccine at StaffViewVaccine.html, the name of the vaccine will show at the heading of StaffViewBatch.html
-function vaccineName(){
-    var pfizer = document.getElementById("pfizer").value;
-    var sinovac = document.getElementById("sinovac").value;
-    var astrazeneca = document.getElementById("astrazeneca").value;
+function vaccineName(vaccine){
+    localStorage.setItem("vaccine", vaccine);
+}
 
-    localStorage.setItem("vaccineName", pfizer);
-    localStorage.setItem("vaccineName", sinovac);
-    localStorage.setItem("vaccineName", astrazeneca);
+function vaccineNameAndBatchNumber(){
+    var vaccineName = document.getElementById("vaccineName").textContent;
+    var batchNo = document.getElementById("batchNumber").textContent;
+    var expiryDate = document.getElementById("expiryDate").textContent;
 
+    localStorage.setItem("vaccineTitle", vaccineName);
+    localStorage.setItem("batchTitle", batchNo);
+    localStorage.setItem("expiryDate", expiryDate);
 }
 
 //to approve the patient request of the vaccine
@@ -280,6 +275,13 @@ function approve(){
 //to reject the patient request of the vaccine
 function reject(){
     document.getElementById("pending").innerHTML = "Rejected";
+}
+
+//to administered after confirmed of the patient pending
+function administered(){
+
+    document.getElementById("administered").innerHTML = "Administered";
+
 }
 
 //to set any remarks for the patient request of the vaccine
