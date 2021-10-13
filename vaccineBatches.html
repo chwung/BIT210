@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Vaccines</title>
+    <title>Vaccines Batches</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,6 +31,9 @@
                             <li class="nav-item">
                                 <a class="nav-link pl-0" href="status.html"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline">Status</span></a>
                             </li>
+                            <li class="nav-item active">
+                              <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw"></i> <span class="d-none d-md-inline font-weight-bolder">LogOut</span></a>
+                          </li>
                         </ul>
                     </div>
                 </nav>
@@ -56,9 +59,9 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td data-toggle="modal" data-target="#firstbatch" id="batchNo">BatchNo</td>
-                        <td>No</td>
-                        <td>Date</td>
+                        <td data-toggle="modal" data-target="#firstbatch" id="batchNo" onclick="setminmaxDate()">123456</td>
+                        <td id="amount">50</td>
+                        <td id="expiryDate">2021-12-25</td>
                       </tr>
                       <!-- Modal -->
                       <div class="modal fade" id="firstbatch" tabindex="-1" aria-labelledby="firstbatch" aria-hidden="true">
@@ -71,11 +74,11 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <input type="date">
+                              <input type="date" id="appointmentDate" required>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Confirm</button>
+                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="selectDate()">Confirm</button>
                             </div>
                           </div>
                         </div>
@@ -110,5 +113,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="PatientCenterName.js"></script>
+    <script src="Javascript.js"></script>
   </body>
 </html>

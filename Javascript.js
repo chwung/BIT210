@@ -291,5 +291,37 @@ function setRemarks(){
     document.getElementById("comment").innerHTML = remark;
 }
 
+function setminmaxDate(){
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById("appointmentDate").setAttribute("min", today);
+
+
+    var expired = document.getElementById("expiryDate").textContent;
+    document.getElementById("appointmentDate").setAttribute("max", expired);
+}
+
+function selectDate(){
+    var amount = document.getElementById("amount").textContent;
+    var date = document.getElementById("appointmentDate").value;
+
+    if(date != ""){
+    amount -= 1;
+    document.getElementById("amount").textContent = amount;
+    localStorage.setItem("appointmentDate", date);
+    vaccineId = generateID()
+    }
+    else{
+        alert("Select a date")
+    }
+}
+
+function generateID(){
+    var vaccineID;
+    vaccineID = Math.floor((Math.random() * 10000000) + 1);
+
+    localStorage.setItem("vaccineID", vaccineID);
+
+}
+
 
 
