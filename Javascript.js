@@ -212,18 +212,20 @@ function staffSubmit(){
     console.log(staffArray);
 }
 
+//to show centre name in the next page when click a specifu centre name
 function selectCenter(center){
     localStorage.setItem("center", center)
 }
-
+//to show vaccine name in the next page when click a specific vaccine name
 function selectVaccine(vaccine){
     localStorage.setItem("vaccine", vaccine);
 }
 
+
 //When add batch the list on the right will change to the input by the user and the table in StaffViewBatch.html 
 //will also show the input of the user
-
 function addBatch(){
+    var vaccine = document.getElementById("manufacturerName").textContent;
     var batchNumber = document.getElementById("batchNumber").value;
     var expiryDate = document.getElementById("expiryDate").value;
     var quantity = document.getElementById("quantity").value;
@@ -244,9 +246,7 @@ function addBatch(){
     }
 
 
-    document.getElementById("batch1").innerHTML = batchNumber;
-    document.getElementById("batch1").nextSibling.nodeValue = quantity;
-
+    document.getElementById("batch1").innerHTML = batchNumber + " - " + vaccine + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + quantity;
     
 }
 
@@ -255,6 +255,8 @@ function vaccineName(vaccine){
     localStorage.setItem("vaccine", vaccine);
 }
 
+//when the user click on a batch at StaffViewVaccine.html, the name of the vaccine and batch number
+//will show at the heading of StaffViewVacBat.html
 function vaccineNameAndBatchNumber(){
     var vaccineName = document.getElementById("vaccineName").textContent;
     var batchNo = document.getElementById("batchNumber").textContent;
@@ -291,6 +293,7 @@ function setRemarks(){
     document.getElementById("comment").innerHTML = remark;
 }
 
+//Set Date in the modal for vaccineBatches.html
 function setminmaxDate(){
     var today = new Date().toISOString().split('T')[0];
     document.getElementById("appointmentDate").setAttribute("min", today);
@@ -300,6 +303,17 @@ function setminmaxDate(){
     document.getElementById("appointmentDate").setAttribute("max", expired);
 }
 
+//Set Date in the modal for StaffAddBatch.html
+function setExpiryDate(){
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementById("expiryDate").setAttribute("min", today);
+
+
+    var expired = document.getElementById("expiryDate").textContent;
+    document.getElementById("expiryDate").setAttribute("max", expired);
+}
+
+//Date validation in  vaccineBatches.html
 function selectDate(){
     var amount = document.getElementById("amount").textContent;
     var date = document.getElementById("appointmentDate").value;
@@ -315,6 +329,7 @@ function selectDate(){
     }
 }
 
+//generate a random ID in the status.html
 function generateID(){
     var vaccineID;
     vaccineID = Math.floor((Math.random() * 10000000) + 1);
