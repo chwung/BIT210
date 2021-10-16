@@ -90,7 +90,6 @@ function login(){
 function changeUsername(){
     var newName = document.getElementById("newUsername").value;
 
-    var name = document.getElementById("name");
 
     document.getElementById("name").innerHTML = newName;
 }
