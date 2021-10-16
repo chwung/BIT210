@@ -153,7 +153,7 @@ class staff{
 
 //For Staff register page to check validation for the staff input
 function validateStaff(){
-    let centreName = document.forms["staffForm"]["centreName"].value;
+    let centreName = document.forms["staffForm"]["centre"].value;
     let address = document.forms["staffForm"]["address"].value;
     let name = document.forms["staffForm"]["name"].value;
     let fullName = document.forms["staffForm"]["fullName"].value;
