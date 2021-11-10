@@ -81,9 +81,6 @@ function login(){
         alert("Username or password is invalid");
         reset();
     }
-
-        
-
 }
 
 //Edit user username in the their profile
