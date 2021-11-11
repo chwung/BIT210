@@ -14,8 +14,10 @@
     $username = $_POST["patientUsername"];
     $password = $_POST["patientPassword"];
     $email = $_POST["patientEmail"];
-    $id = $_POST["patientID"];
+    $ic = $_POST["patientIC"];
     $flag = 0;
+
+    #create table USERS (username varchar(20), password varchar(20), email varchar(20), ic varchar(12)); (create table for database)
 
     $sqlQuery = "SELECT * FROM PATIENTS";
 
@@ -34,7 +36,7 @@
     if ($flag == 1){                                    //user already exists
         echo "User $fullname already exist <br>";
         } else {                                        //user doer not exists
-            $sqlQuery = "INSERT INTO USERS VALUES ('$username' , '$password', '$email', '$id')";
+            $sqlQuery = "INSERT INTO USERS VALUES ('$username' , '$password', '$email', '$ic')";
 			$result = $connection -> query($sqlQuery);  //execute query (php)
 				if ($result == TRUE){                   //check status of query
 					echo "User Registered successfully";
