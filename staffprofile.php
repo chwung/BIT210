@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-    $_SESSION;
+    include("loginConnection.php");
+    include("loginFunctions.php");
+
+    $user_data = check_login($con)
 
 ?>
 
@@ -55,7 +58,8 @@ session_start();
                                         <div class="col-lg-12 bg-light shadow rounded">
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 mt-2 ml-2">Username:</p>
-                                                <p class=" h3 mb-4 mt-2" id="name">Name</p>
+                                                <?php echo $user_data['user_name'] ?>
+                                                <p class=" h3 mb-4 mt-2" id="name"></p>
                                                 <i class="fa fa-pencil fa-fw text-dark mt-2" data-toggle = "modal" data-target="#editModal"></i>
 
                                                 <!--Modal-->
@@ -84,32 +88,32 @@ session_start();
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Password:</p>
-                                                <p class=" h3 mb-4" id="password">Password</p>
+                                                <?php echo $user_data['password'] ?>
+                                                <p class=" h3 mb-4" id="password"></p>
                                                 <i class="fa fa-pencil fa-fw text-dark"></i>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Email:</p>
-                                                <p class=" h3 mb-4" id="email">Staff@gmail.com</p>
-                                                <i class="fa fa-pencil fa-fw text-dark"></i>
-                                            </div>
-                                            <div class="row">
-                                                <p class=" h3 mb-4 mr-2 ml-2">IC/Passport:</p>
-                                                <p class=" h3 mb-4">010810-07-0116</p>
+                                                <?php echo $user_data['email'] ?>
+                                                <p class=" h3 mb-4" id="email"></p>
                                                 <i class="fa fa-pencil fa-fw text-dark"></i>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Centre Name:</p>
-                                                <p class=" h3 mb-4" id="centreName">Name</p>
+                                                <?php echo $user_data['centre_name'] ?>
+                                                <p class=" h3 mb-4" id="centreName"></p>
                                                 <i class="fa fa-pencil fa-fw text-dark"></i>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Centre Address:</p>
-                                                <p class=" h3 mb-4">No A113, Bandar Toy Story 03020 Selangor.</p>
+                                                <?php echo $user_data['centre_address'] ?>
+                                                <p class=" h3 mb-4"></p>
                                                 <i class="fa fa-pencil fa-fw text-dark"></i>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">StaffID:</p>
-                                                <p class=" h3 mb-4">S0113</p>
+                                                <?php echo $user_data['staff_id'] ?>
+                                                <p class=" h3 mb-4"></p>
                                                 <i class="fa fa-pencil fa-fw text-dark"></i>
                                             </div>
     

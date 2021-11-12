@@ -1,3 +1,41 @@
+<?php
+session_start();
+  include("loginConnection.php");
+  include("loginFunctions.php");
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+  //something was posted
+  $user_name = $_POST ['username'];
+  $password = $_POST['password'];
+
+  if(!empty($user_name) && !empty($password)){
+      //read from database
+      $query =  "select * from staffs where user_name = '$user_name' limit 1";
+     
+      $result = mysqli_query($con, $query);
+      
+      if($result)
+      {
+        if($result && mysqli_num_rows($result) > 0)
+        {
+          
+            $user_data = mysqli_fetch_assoc($result);
+            
+            if($user_data['password'] === $password)
+            {
+              $_SESSION['user_name'] = $user_data['user_name'];
+              header("Location: staffprofile.php");
+              die;
+              
+            }
+
+        }
+      }
+  }
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +54,7 @@
         <div class="box bg-white">
           <figure><img src="Vaccine_Icon.png" alt="Vaccine Logo"></figure>
           <h1 class="text-center">Login</h1>
-          <form method="POST" id="form">
+          <form method="post" id="form">
             <div class="form-group">
               <label for="username">Username:</label>
               <input type="text" class="form-control sizing" id="username" name="username" required>
@@ -30,7 +68,7 @@
             </div>
           </form>
           <p class="text-center">
-          <a href="RegisterPatient.html" class="mb-0 text-center">Don't have an account?</a>
+          <a href="registerStaff.php" class="mb-0 text-center">Don't have an account?</a>
           </p>  
         </div>
       </div>
