@@ -1,5 +1,4 @@
 <?php
-
 $connection = new mysqli ("localhost", "root", "", "vaccess");
 
 if ($connection -> connect_error){
