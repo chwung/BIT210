@@ -17,12 +17,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     if(!empty($centre_name) && !empty($centre_address) && !empty($user_name) && !empty($full_name) && !empty($password) && !empty($email) && !empty($staff_id)){
         //save to database
-        $query =  "insert into staffs (centre_name, centre_address, username, fullname, password, email, staff_id) values 
+        $query =  "insert into staffs values 
         ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
          
          mysqli_query($con, $query);
 
-        header("Location: loginStaff.php");
+        header("Location: login.php");
         die;
 
     }else
@@ -110,7 +110,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
               <button type="button" class="btn btn-reset w-25" id="btnReset" onclick="reset()">reset</button>
             </div>
           </form>
-          <p class="mb-0 text-center">Already have an account?<a href="loginStaff.php" class="mb-0 text-center text-decoration-none">Signup here!</a></p>
+          <p class="mb-0 text-center">Already have an account?<a href="login.php" class="mb-0 text-center text-decoration-none">Signup here!</a></p>
         </div>
       </div>
     

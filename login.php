@@ -11,14 +11,14 @@
 $sqlPatient = "SELECT * FROM PATIENTS WHERE username = '$username' AND password = '$password'";
 $patient = $connection->query($sqlPatient);
 
-$sqlStaff = "SELECT * FROM STAFF WHERE username = '$username' AND password = '$password'";
+$sqlStaff = "SELECT * FROM STAFFS WHERE username = '$username' AND password = '$password'";
 $staff = $connection->query($sqlStaff);
 
 if($patient -> num_rows > 0){
     $patientFlag = 1;
-} //else if($staff -> num_rows > 0) {
-    //$staffFlag = 1;
-//}
+}else if($staff -> num_rows > 0) {
+    $staffFlag = 1;
+}
 
 if($staffFlag == 0 && $patientFlag == 0){
     echo '<script type="text/javascript">
