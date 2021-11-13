@@ -32,7 +32,7 @@
               <input type="password" class="form-control sizing" id="password" name="password" required>
             </div>
             <div>
-            <button type="submit" class="btn btn-primary w-100" onclick="//login()">Login</button>
+            <button type="submit" class="btn btn-primary w-100" >Login</button>
             </div>
           </form>
           <p class="text-center">
@@ -42,11 +42,13 @@
       </div>
 
     <?php
-    if(!isset($username) && isset($password)){
+      if($_SERVER['REQUEST_METHOD'] == "POST")
+      {
         $username = $_POST["username"];
         $password = $_POST["password"];
         $patientFlag = 0;
         $staffFlag = 0;
+  
         
         $sqlPatient = "SELECT * FROM PATIENTS WHERE username = '$username' AND password = '$password'";
         $patient = $connection->query($sqlPatient);
