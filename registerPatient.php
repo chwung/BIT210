@@ -64,7 +64,7 @@
               <button type="button" class="btn btn-reset w-25" id="btnReset" onclick="reset()">reset</button>
             </div>
           </form>
-          <p class="mb-0 text-center">Already have an account?<a href="LogIn.html" class="mb-0 text-center text-decoration-none">Log In here!</a></p>
+          <p class="mb-0 text-center">Already have an account?<a href="login.php" class="mb-0 text-center text-decoration-none">Log In here!</a></p>
         </div>
       </div>
         
