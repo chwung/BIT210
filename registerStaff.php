@@ -17,12 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     if(!empty($centre_name) && !empty($centre_address) && !empty($user_name) && !empty($full_name) && !empty($password) && !empty($email) && !empty($staff_id)){
         //save to database
-<<<<<<< HEAD
         $query =  "insert into staffs values 
         ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
-=======
-        $query =  "INSERT INTO staffs VALUES ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
->>>>>>> 53083820ca3bef72161aec59106c6bc6ad86926a
          
          mysqli_query($con, $query);
 
