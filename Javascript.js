@@ -1,86 +1,10 @@
-patientArray = [];
-staffArray = [];
 
-//Constructor for patient
-class patient{
-    constructor([name,password, email, id]){
-        this.name = name;
-        this.password = password;
-        this.email = email;
-        this.id = id;
-    }
-
-    getName(){
-        return this.name;
-    }
-
-    getPassword(){
-        return this.password;
-    }
-}
 
 //Reset button for register pages
 function reset(){
     document.getElementById("form").reset;
 }
 
-//login in to the system with fixed username and password for staff and patient
-function login(){
-    var patientUsername = [
-        'John', 'Steve', 'Alex'
-    ];
-    var patientPassword = [
-        'Johnpassword', 'Stevepassword', 'Alexpassword'
-    ];
-
-    var staffUsername = [
-        'Staff1', 'Staff2', 'Staff3'
-    ];
-    var staffPassword = [
-        'password1', 'password2', 'password3'
-    ];
-
-    var centreName = [
-        'Kuala Lumpur Convention Centre','Setia City Centre','Axiata Arena Bukit Jalil Centre'
-    ];
-
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-    
-    if (username == patientUsername[0] && password == patientPassword[0]) {
-        alert('Welcome ' + username);
-        window.location.href = "PatientProfile.html";
-    } else if (username == patientUsername[1] && password == patientPassword[1]) {
-        alert('Welcome ' + username);
-        window.location.href = "PatientProfile.html";
-    }
-    else if (username == patientUsername[2] && password == patientPassword[2]) {
-        alert('Welcome ' + username);
-        window.location.href = "PatientProfile.html";
-      
-    }else if(username == staffUsername[0] && password == staffPassword[0]){
-        alert('Welcome ' + username);
-        var centre = centreName[0];
-        localStorage.setItem("centreName", centre);
-        window.location.href = "StaffProfile.html";
-    }else if(username == staffUsername[1] && password == staffPassword[1]){
-        alert('Welcome ' + username);
-        var centre = centreName[1];
-        localStorage.setItem("centreName", centre);
-        window.location.href = "StaffProfile.html";
-    }else if(username == staffUsername[2] && password == staffPassword[2]){
-        alert('Welcome ' + username);
-        var centre = centreName[2];
-        localStorage.setItem("centreName", centre);
-        window.location.href = "StaffProfile.html";
-    }else{
-        alert("Username or password is invalid");
-        reset();
-    }
-}
 
 //Edit user username in the their profile
 function changeUsername(){
@@ -131,19 +55,6 @@ function patientSubmit(){
     patientArray.push(newPatient);
     console.log(patientArray);
 
-}
-
-//constructor for stuff
-class staff{
-    constructor([centreName, address, name, fullName, password, email, staffID]){
-        this.centreName = centreName;
-        this.address = address;
-        this.name = name;
-        this.fullName = fullName;
-        this.password = password;
-        this.email = email;
-        this.staffID = staffID;
-    }
 }
 
 //For Staff register page to check validation for the staff input
