@@ -32,7 +32,6 @@ if($staffFlag == 0 && $patientFlag == 0){
 } else if($staffFlag == 1){
     $_SESSION['staffUsername'] = $username;
     $_SESSION['staffPassword'] = $password;
-    echo "success";
     //header("location: StaffProfile.html");
 }
 ?>
