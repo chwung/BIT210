@@ -17,7 +17,7 @@
     $ic = $_POST["patientIC"];
     $flag = 0;
 
-    #create table USERS (username varchar(20), password varchar(20), email varchar(20), ic varchar(12)); (create table for database)
+    #create table PATIENTS (username varchar(20), password varchar(20), email varchar(20), ic varchar(12)); (create table for database)
 
     $sqlQuery = "SELECT * FROM PATIENTS";
 
@@ -26,8 +26,8 @@
     if($status -> num_rows > 0){                        //checks if there's any patients
         echo "All users info <br>";
         while ($row = $status -> fetch_assoc()) {
-            echo "Name : " . $row["username"] . "<br>";
-            if ($username == $row["username"]){
+            echo "Email : " . $row["email"] . "<br>";
+            if ($email == $row["email"]){
                 $flag = 1;
                 }
         }

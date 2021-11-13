@@ -16,14 +16,15 @@ $staff = $connection->query($sqlStaff);
 
 if($patient -> num_rows > 0){
     $patientFlag = 1;
-} else if($staff -> num_rows > 0) {
-    $staffFlag = 1;
-}
+} //else if($staff -> num_rows > 0) {
+    //$staffFlag = 1;
+//}
 
-if($staffFlag && $patientFlag == 0){
+if($staffFlag == 0 && $patientFlag == 0){
     echo '<script type="text/javascript">
     alert("Username or Password wrong.");
     </script>';
+    header("location: login.html");
 } else if($patientFlag == 1) {
     $_SESSION['patientUsername'] = $username;
     $_SESSION['patientPassword  '] = $password;
