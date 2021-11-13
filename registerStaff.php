@@ -1,6 +1,6 @@
 <?php 
 session_start();
-    include("loginConnection.php");
+    include("dbcon.php");
     include("loginFunctions.php");
 
 
