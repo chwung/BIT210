@@ -6,6 +6,7 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
+
     //something was posted
     $centre_name = $_POST['centreName'];
     $centre_address = $_POST['address'];
@@ -15,20 +16,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $email = $_POST['email'];
     $staff_id = $_POST['staffID'];
 
-    if(!empty($centre_name) && !empty($centre_address) && !empty($user_name) && !empty($full_name) && !empty($password) && !empty($email) && !empty($staff_id)){
-        //save to database
-        $query =  "insert into staffs values 
-        ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
-         
-         mysqli_query($con, $query);
+    $sqlQuery = "SELECT * FROM STAFFS";
 
-        header("Location: login.php");
-        die;
-
-    }else
-    {
-        echo "Please enter some valid information!";
+    $status = $connection->query($sqlQuery);
+    
+    if($status -> num_rows > 0){                        //checks if there's any patients
+        while ($row = $status -> fetch_assoc()) {
+            if ($email == $row["email"]){
+                $flag = 1;
+                }
+        }
     }
+
+    if ($flag == 1){ 
+          echo '<script type="text/javascript">'; //user already exists
+          echo 'alert("Email already In Use.")';
+          echo '</script>';                                   
+        } else {                                        //user doer not exists
+            $sqlQuery = "INSERT INTO STAFFS VALUES ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
+			      $result = $connection -> query($sqlQuery);  //execute query (php)
+				  if ($result == TRUE){                   //check status of query
+                    header("location: login.php");
+                    die;
+				}
+     }
 }
 ?>
 
@@ -39,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="RegisterStaff.css">
+  
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -48,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
   <body class = "bg-info">
       <div class="row vh-100 align-items-center justify-content-center">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4 bg-white rounded p-5 shadow">
-          <img src="Vaccine_Icon.png" alt="Vaccine Logo">
+          <img src="Vaccine_Icon.png" alt="Vaccine Logo" style="width: 50%; height: 25%; margin-left: 25%">
           <h1 class="mb-0 text-center font-weight-bold">Create an Account</h1>
           <form id="form" name="staffForm" method="post">
             <div class="mb-4">
@@ -74,7 +85,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
               
                 <label for="address" class="form-label font-weight-bold">Centre Address</label>
                 <br>
-                <textarea name="address" id="address" rows="5" placeholder="Centre Address"></textarea>
+                <textarea name="address" id="address" rows="5" placeholder="Centre Address" style="width: 100%;"></textarea>
 
             </div>
             <div class="mb-4">
