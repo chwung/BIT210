@@ -58,63 +58,59 @@ session_start();
                                         <div class="col-lg-12 bg-light shadow rounded">
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 mt-2 ml-2">Username:</p>
-                                                <?php echo $user_data['user_name'] ?>
-                                                <p class=" h3 mb-4 mt-2" id="name"></p>
-                                                <i class="fa fa-pencil fa-fw text-dark mt-2" data-toggle = "modal" data-target="#editModal"></i>
-
-                                                <!--Modal-->
-                                                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h5 class="modal-title" id="editLabel">Username</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="mb-4">
-                                                                <input type="text" id="newUsername" class=" form-control">
-                                                
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary" onclick="changeUsername()" data-dismiss="modal">Confirm</button>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                </div>
+                                                <?php 
+                                                echo '<p style= "font-size: 35px">';
+                                                echo $user_data['username'];
+                                                echo '</p>';  
+                                                ?>
+                                            </div>
+                                            <div class="row">
+                                                <p class=" h3 mb-4 mr-2 mt-2 ml-2">Full Name:</p>
+                                                <?php 
+                                                echo '<p style= "font-size: 35px">';
+                                                echo $user_data['fullname'];
+                                                echo '</p>';  
+                                                ?>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Password:</p>
-                                                <?php echo $user_data['password'] ?>
-                                                <p class=" h3 mb-4" id="password"></p>
-                                                <i class="fa fa-pencil fa-fw text-dark"></i>
+                                                <?php 
+                                                echo '<p style= "font-size: 30px">';
+                                                echo $user_data['password'];
+                                                echo '</p>';  
+                                                ?>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Email:</p>
-                                                <?php echo $user_data['email'] ?>
-                                                <p class=" h3 mb-4" id="email"></p>
-                                                <i class="fa fa-pencil fa-fw text-dark"></i>
+                                                <?php 
+                                                echo '<p style= "font-size: 30px">';
+                                                echo $user_data['email'];
+                                                echo '</p>';  
+                                                ?>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Centre Name:</p>
-                                                <?php echo $user_data['centre_name'] ?>
-                                                <p class=" h3 mb-4" id="centreName"></p>
-                                                <i class="fa fa-pencil fa-fw text-dark"></i>
+                                                <?php 
+                                                echo '<p style= "font-size: 30px">';
+                                                echo $user_data['centre_name'];
+                                                echo '</p>';  
+                                                ?>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">Centre Address:</p>
-                                                <?php echo $user_data['centre_address'] ?>
-                                                <p class=" h3 mb-4"></p>
-                                                <i class="fa fa-pencil fa-fw text-dark"></i>
+                                                <?php 
+                                                echo '<p style= "font-size: 25px">';
+                                                echo $user_data['centre_address'];
+                                                echo '</p>';  
+                                                ?>
                                             </div>
                                             <div class="row">
                                                 <p class=" h3 mb-4 mr-2 ml-2">StaffID:</p>
-                                                <?php echo $user_data['staff_id'] ?>
-                                                <p class=" h3 mb-4"></p>
-                                                <i class="fa fa-pencil fa-fw text-dark"></i>
+                                                <?php 
+                                                echo '<p style= "font-size: 30px">';
+                                                echo $user_data['staff_id'];
+                                                echo '</p>';  
+                                                ?>
                                             </div>
     
                                         </div>

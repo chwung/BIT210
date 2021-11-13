@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
   if(!empty($user_name) && !empty($password)){
       //read from database
-      $query =  "select * from staffs where user_name = '$user_name' limit 1";
+      $query =  "select * from staffs where username = '$user_name' limit 1";
      
       $result = mysqli_query($con, $query);
       
@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             
             if($user_data['password'] === $password)
             {
-              $_SESSION['user_name'] = $user_data['user_name'];
+              $_SESSION['username'] = $user_data['username'];
               header("Location: staffprofile.php");
               die;
               
