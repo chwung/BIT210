@@ -24,14 +24,15 @@ if($staffFlag == 0 && $patientFlag == 0){
     echo '<script type="text/javascript">
     alert("Username or Password wrong.");
     </script>';
-    header("location: login.html");
+    //header("location: login.html");
 } else if($patientFlag == 1) {
     $_SESSION['patientUsername'] = $username;
     $_SESSION['patientPassword  '] = $password;
-    header("location: PatientProfile.html");
+    //header("location: PatientProfile.html");
 } else if($staffFlag == 1){
     $_SESSION['staffUsername'] = $username;
     $_SESSION['staffPassword'] = $password;
-    header("location: StaffProfile.html");
+    echo "success";
+    //header("location: StaffProfile.html");
 }
 ?>
