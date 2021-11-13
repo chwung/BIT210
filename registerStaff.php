@@ -55,8 +55,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
               <label for="select" class="form-label font-weight-bold">Choose</label>
               <br>
                 <select id="Select" class="form-control" onchange="location = this.value;">
-                    <option value="RegisterStaff.html">Healthcare AdministratorStaff</option>
-                    <option value="RegisterPatient.html">Patient</option>
+                    <option value="registerStaff.php">Healthcare AdministratorStaff</option>
+                    <option value="registerPatient.php">Patient</option>
                 </select>
             </div>
             <div class="mb-4">
