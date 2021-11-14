@@ -1,10 +1,20 @@
 <?php
 session_start();
 
-    include("loginConnection.php");
-    include("loginFunctions.php");
+    include("dbcon.php");
 
-    $user_data = check_login($con)
+    if(isset($_SESSION['staffUsername']))
+    {
+        $username = $_SESSION['staffUsername'];
+        $password = $_SESSION['staffPassword'];
+        $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
+
+        $result = $connection->query($query);
+        if($result -> num_rows > 0)
+        {
+            $user_data = $result -> fetch_assoc();
+        }
+    }
 
 ?>
 

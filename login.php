@@ -73,7 +73,7 @@
         } else if($staffFlag == 1){
             $_SESSION['staffUsername'] = $username;
             $_SESSION['staffPassword'] = $password;
-            header("location: staffLogin.php");
+            header("location: staffprofile.php");
         }
     }
     ?>

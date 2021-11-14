@@ -1,8 +1,6 @@
 <?php 
 session_start();
     include("dbcon.php");
-    include("loginFunctions.php");
-
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
@@ -15,6 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $password = $_POST['password'];
     $email = $_POST['email'];
     $staff_id = $_POST['staffID'];
+    $flag = 0;
 
     $sqlQuery = "SELECT * FROM STAFFS";
 
