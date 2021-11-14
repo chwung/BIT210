@@ -10,17 +10,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $expiry_date = $_POST['expiry_date'];
     $quantity = $_POST ['quantity'];
 
+    $username = $_SESSION['staffUsername'];
+    $password = $_SESSION['staffPassword'];
+    $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
+
+    $result = $connection->query($query);
+    if($result -> num_rows > 0)
+    {
+        $user_data = $result -> fetch_assoc();
+    }
+
+    $centre_name = $user_data['centre_name'];
+
+    
     if (isset($_POST['submit'])){
         if($_POST['vaccine'] == 'pfizer'){
-            $sqlQuery = "INSERT INTO pfizer_batch VALUES ('$batch_id', '$expiry_date', '$quantity')";
+            $sqlQuery = "INSERT INTO pfizer_batch VALUES ('$centre_name','$batch_id', '$expiry_date', '$quantity')";
 		    $result = $connection -> query($sqlQuery);  //execute query (php)
 
         }else if($_POST['vaccine'] == 'sinovac'){
-            $sqlQuery = "INSERT INTO sino_batch VALUES ('$batch_id', '$expiry_date', '$quantity')";
+            $sqlQuery = "INSERT INTO sino_batch VALUES ('$centre_name','$batch_id', '$expiry_date', '$quantity')";
             $result = $connection -> query($sqlQuery);  //execute query (php)
 
         }else if($_POST['vaccine'] == 'astrazeneca'){
-            $sqlQuery = "INSERT INTO astra_batch VALUES ('$batch_id', '$expiry_date', '$quantity')";
+            $sqlQuery = "INSERT INTO astra_batch VALUES ('$centre_name','$batch_id', '$expiry_date', '$quantity')";
             $result = $connection -> query($sqlQuery);  //execute query (php)
 
         }                            
@@ -52,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         <ul class="flex-lg-column flex-row navbar-nav w-100 justify-content-between">
                             <img src="Vaccine_Icon.png" alt="Vaccine Logo" class="img-fluid col-1 col-sm-1 col-md-1 col-lg-8 d-none d-md-inline">
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="StaffProfile.html"><i class="fa fa-book fa-fw text-light "></i> <span class="d-none d-md-inline text-light font-weight-bolder">Profile</span></a>
+                                <a class="nav-link pl-0" href="staffprofile.php"><i class="fa fa-book fa-fw text-light "></i> <span class="d-none d-md-inline text-light font-weight-bolder">Profile</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pl-0" href=""><i class="fa fa-plus fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">Add Batch</span></a>
@@ -61,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 <a class="nav-link pl-0" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">View Batch</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">Log Out</span></a>
+                                <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.php"><i class="fa fa-unlock-alt fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">Log Out</span></a>
                             </li>
                         </ul>
                     </div>
