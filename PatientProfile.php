@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+    include("dbcon.php");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,16 +28,16 @@
                                 <img src="Vaccine_Icon.png" alt="Vaccine Logo"  class="img-fluid d-none d-md-inline" >
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link pl-0" href="PatientProfile.html"><i class="fa fa-user-circle fa-fw"></i> <span class="d-none d-md-inline">Profile</span></a>
+                                <a class="nav-link pl-0" href="PatientProfile.php"><i class="fa fa-user-circle fa-fw"></i> <span class="d-none d-md-inline">Profile</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="vaccines.html"><i class="fa fa-medkit fa-fw"></i> <span class="d-none d-md-inline">Vaccines</span></a>
+                                <a class="nav-link pl-0" href="vaccines.php"><i class="fa fa-medkit fa-fw"></i> <span class="d-none d-md-inline">Vaccines</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="status.html"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline">Status</span></a>
+                                <a class="nav-link pl-0" href="status.php"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline">Status</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw"></i> <span class="d-none d-md-inline font-weight-bolder">LogOut</span></a>
+                                <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.php"><i class="fa fa-unlock-alt fa-fw"></i> <span class="d-none d-md-inline font-weight-bolder">LogOut</span></a>
                             </li>
                         </ul>
                     </div>
