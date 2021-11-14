@@ -71,25 +71,55 @@
                                             </div>
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Pfizer" data-parent="#vaccine">
-                                            <div class="row">
-                                                <a href="vaccineBatches.php">
-                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Pfizer)</p>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                $query = "SELECT DISTINCT center_name from pfizer_batch";
+                                                $result = $connection -> query($query);
+
+                                                if($result -> num_rows > 0){
+                                                    while($batch = $result -> fetch_assoc()){
+                                                        $center = $batch['center_name'];
+                                                        echo '<div class="row">';
+                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "$center";
+                                                        echo '</a>';
+                                                        echo '</div>';
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Sino" data-parent="#vaccine">
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Sino)</p>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                $query = "SELECT DISTINCT center_name from sino_batch";
+                                                $result = $connection -> query($query);
+
+                                                if($result -> num_rows > 0){
+                                                    while($batch = $result -> fetch_assoc()){
+                                                        $center = $batch['center_name'];
+                                                        echo '<div class="row">';
+                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "$center";
+                                                        echo '</a>';
+                                                        echo '</div>';
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Astra" data-parent="#vaccine">
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Astra)</p>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                $query = "SELECT DISTINCT center_name from astra_batch";
+                                                $result = $connection -> query($query);
+
+                                                if($result -> num_rows > 0){
+                                                    while($batch = $result -> fetch_assoc()){
+                                                        $center = $batch['center_name'];
+                                                        echo '<div class="row">';
+                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "$center";
+                                                        echo '</a>';
+                                                        echo '</div>';
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
