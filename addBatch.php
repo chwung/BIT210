@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                 <a class="nav-link pl-0" href=""><i class="fa fa-plus fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">Add Batch</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link pl-0" href="StaffViewVaccine.html"><i class="fa fa-eye fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">View Batch</span></a>
+                                <a class="nav-link pl-0" href="viewVaccine.php"><i class="fa fa-eye fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">View Batch</span></a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.php"><i class="fa fa-unlock-alt fa-fw text-light"></i> <span class="d-none d-md-inline text-light font-weight-bolder">Log Out</span></a>
@@ -151,19 +151,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                     <div class="row h-100 form-control">
                                         <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-light">
                                             <ul class="list-group" id="listbatch">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center form-control" id="batch1">
-                                                VaccineID
+                                                <?php
+                                                echo "Added Batch";
                                                 
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center form-control">
-                                                VaccineID
+                                                if (isset($_POST['submit'])){
+                                                    echo '<li class="list-group-item d-flex justify-content-between align-items-center form-control" id="batch1">';
+                                                    echo " Batch ID:" . $batch_id . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Date:" . $expiry_date . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity:" . $quantity;
+                                                    echo '</li>';  
+                                                }
                                                 
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center form-control">
-                                                VaccineID
+                                                ?>
                                                 
-                                                </li>
                                             </ul>
                                         </div>
                                     </div>
