@@ -65,24 +65,24 @@
                                                     <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" id="batchNumber" onclick="vaccineNameAndBatchNumber()">B0000001</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" id="available">10</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" id="expiryDate">00/00/00</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">2</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" id="batchNumber" onclick="vaccineNameAndBatchNumber()">B0000001</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" id="available">10</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" id="expiryDate">00/00/00</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">2</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">2</th>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" onclick="vaccineNameAndBatchNumber()">B0000002</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" >30</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">10</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" onclick="vaccineNameAndBatchNumber()">B0000002</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" >30</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">10</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">3</th>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark" onclick="vaccineNameAndBatchNumber()">B0000003</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">20</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
-                                                        <td><a href="StaffViewVacBat.html" class="mb-0 text-center text-decoration-none text-dark">15</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" onclick="vaccineNameAndBatchNumber()">B0000003</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">20</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
+                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">15</a></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>

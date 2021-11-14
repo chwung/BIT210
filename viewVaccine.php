@@ -1,7 +1,18 @@
 <?php
+session_start();
+include("dbcon.php");
 
+$username = $_SESSION['staffUsername'];
+    $password = $_SESSION['staffPassword'];
+    $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
 
+    $result = $connection->query($query);
+    if($result -> num_rows > 0)
+    {
+        $user_data = $result -> fetch_assoc();
+    }
 
+    $centre_name = $user_data['centre_name'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,9 +55,14 @@
                     </nav>
                 </aside>
                 <main class="col bg-info">
-                    <div>
-                        <p class="row h1 border-bottom border-dark ml-4 p-3 text-dark " id="centreName">Centre Name</p>
-                    </div>
+                    <?php
+                       echo '<div>';
+                       echo '<p class="row h1 border-bottom border-dark ml-4 p-3 text-dark ">';
+                       echo  $centre_name;
+                       echo '</p>';
+                       echo '</div>';
+                    ?>
+                    
                     
                     <!--Table-->
                     <div class="container">
