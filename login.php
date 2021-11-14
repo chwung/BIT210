@@ -68,12 +68,12 @@
             echo '</script>';
         } else if($patientFlag == 1) {
             $_SESSION['patientUsername'] = $username;
-            $_SESSION['patientPassword  '] = $password;
+            $_SESSION['patientPassword'] = $password;
             header("location: PatientProfile.php");
         } else if($staffFlag == 1){
             $_SESSION['staffUsername'] = $username;
             $_SESSION['staffPassword'] = $password;
-            header("location: staffprofile.php");
+            header("location: staffLogin.php");
         }
     }
     ?>

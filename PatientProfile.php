@@ -2,6 +2,20 @@
     session_start();
 
     include("dbcon.php");
+
+        
+    if(isset($_SESSION['patientUsername']))
+    {
+        $username = $_SESSION['patientUsername'];
+        $password = $_SESSION['patientPassword'];
+        $query = "SELECT * FROM patients WHERE username = '$username' AND password = '$password'";
+
+        $result = $connection->query($query);
+        if($result -> num_rows > 0)
+        {
+            $user_data = $result -> fetch_assoc();
+        }
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,40 +69,43 @@
                                     <div class="col bg-light">
                                         <div class="row">
                                             <p class=" h3 mb-4 mr-2 mt-2 ml-2">Username:</p>
-                                            <p class=" h3 mb-4 mt-2" id="name">Name</p>
-                                            <i class="fa fa-pencil fa-fw text-dark mt-2" data-toggle="modal" data-target="#username"></i>
-                                        </div>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="username" tabindex="-1" aria-labelledby="username" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title">Change Username?</h5>
-                                                </div>
-                                                <div class="modal-body">
-                                                <input type="text" id="newUsername">
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" id="confirm" onclick="changeUsername()" data-dismiss="modal">Confirm</button>
-                                                </div>
-                                            </div>
-                                            </div>
+                                            <p class=" h3 mb-4 mt-2" id="name">
+                                                <?php
+                                                echo '<p style= "font-size: 35px">';
+                                                echo $user_data['username'];
+                                                echo '</p>'; 
+                                                ?>
+                                            </p>
                                         </div>
                                         <div class="row">
                                             <p class=" h3 mb-4 mr-2 ml-2">Password:</p>
-                                            <p class=" h3 mb-4" id="password">Password</p>
-                                            <i class="fa fa-pencil fa-fw text-dark"></i>
+                                            <p class=" h3 mb-4" id="password">
+                                            <?php
+                                                echo '<p style= "font-size: 35px">';
+                                                echo $user_data['password'];
+                                                echo '</p>'; 
+                                                ?>
+                                            </p>     
                                         </div>
                                         <div class="row">
                                             <p class=" h3 mb-4 mr-2 ml-2">Email:</p>
-                                            <p class=" h3 mb-4">B1900864@helplive.edu.my</p>
-                                            <i class="fa fa-pencil fa-fw text-dark"></i>
+                                            <p class=" h3 mb-4">
+                                            <?php
+                                                echo '<p style= "font-size: 35px">';
+                                                echo $user_data['email'];
+                                                echo '</p>'; 
+                                                ?>
+                                            </p>
                                         </div>
                                         <div class="row">
                                             <p class=" h3 mb-4 mr-2 ml-2">IC/Passport:</p>
-                                            <p class=" h3 mb-4">010830101505</p>
-                                            <i class="fa fa-pencil fa-fw text-dark"></i>
+                                            <p class=" h3 mb-4">
+                                            <?php
+                                                echo '<p style= "font-size: 35px">';
+                                                echo $user_data['ic'];
+                                                echo '</p>'; 
+                                                ?>
+                                            </p>
                                         </div>
 
                                         </div>
