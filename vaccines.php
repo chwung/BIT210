@@ -28,13 +28,13 @@
                                 <img src="Vaccine_Icon.png" alt="Vaccine Logo"  class="img-fluid d-none d-md-inline">
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="PatientProfile.html"><i class="fa fa-user-circle fa-fw"></i> <span class="d-none d-md-inline">Profile</span></a>
+                                <a class="nav-link pl-0" href="PatientProfile.php"><i class="fa fa-user-circle fa-fw"></i> <span class="d-none d-md-inline">Profile</span></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link pl-0" href="vaccines.html"><i class="fa fa-medkit fa-fw"></i> <span class="d-none d-md-inline">Vaccines</span></a>
+                                <a class="nav-link pl-0" href="vaccines.php"><i class="fa fa-medkit fa-fw"></i> <span class="d-none d-md-inline">Vaccines</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link pl-0" href="status.html"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline">Status</span></a>
+                                <a class="nav-link pl-0" href="status.php"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline">Status</span></a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link pl-0 ml-3 fixed-bottom" href="login.html"><i class="fa fa-unlock-alt fa-fw"></i> <span class="d-none d-md-inline font-weight-bolder">LogOut</span></a>
@@ -71,71 +71,55 @@
                                             </div>
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Pfizer" data-parent="#vaccine">
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Pfizer)</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Setia City Convention Centre')">Setia City Convention Centre</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Axiata Arena Bukit Jalil Centre')">Axiata Arena Bukit Jalil Centre</p>
-                                                </a>
-                                            </div>
-                                            <!--use php echo to add a div class row to add new centre and address-->
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                $query = "SELECT DISTINCT center_name from pfizer_batch";
+                                                $result = $connection -> query($query);
+
+                                                if($result -> num_rows > 0){
+                                                    while($batch = $result -> fetch_assoc()){
+                                                        $center = $batch['center_name'];
+                                                        echo '<div class="row">';
+                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "$center";
+                                                        echo '</a>';
+                                                        echo '</div>';
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Sino" data-parent="#vaccine">
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Sino)</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Setia City Convention Centre')">Setia City Convention Center</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Axiata Arena Bukit Jalil Centre')">Axiata Arena Bukit Jalil Center</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                $query = "SELECT DISTINCT center_name from sino_batch";
+                                                $result = $connection -> query($query);
+
+                                                if($result -> num_rows > 0){
+                                                    while($batch = $result -> fetch_assoc()){
+                                                        $center = $batch['center_name'];
+                                                        echo '<div class="row">';
+                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "$center";
+                                                        echo '</a>';
+                                                        echo '</div>';
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Astra" data-parent="#vaccine">
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Kuala Lumpur Convention Centre')">Kuala Lumpur Convention Centre (Astra)</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Setia City Convention Centre')">Setia City Convention Center</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p onclick="selectCenter('Axiata Arena Bukit Jalil Centre')">Axiata Arena Bukit Jalil Center</p>
-                                                </a>
-                                            </div>
-                                            <div class="row">
-                                                <a href="vaccineBatches.html">
-                                                <p>Center Name <br> Address</p>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                $query = "SELECT DISTINCT center_name from astra_batch";
+                                                $result = $connection -> query($query);
+
+                                                if($result -> num_rows > 0){
+                                                    while($batch = $result -> fetch_assoc()){
+                                                        $center = $batch['center_name'];
+                                                        echo '<div class="row">';
+                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "$center";
+                                                        echo '</a>';
+                                                        echo '</div>';
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
