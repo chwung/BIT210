@@ -79,11 +79,14 @@
                                                     while($batch = $result -> fetch_assoc()){
                                                         $center = $batch['centre_name'];
                                                         echo '<div class="row">';
-                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "<a href='vaccineBatches.php";
+                                                        echo "?center=$center";
+                                                        echo "&vac=Pfizer'>";
                                                         echo "$center";
                                                         echo '</a>';
                                                         echo '</div>';
                                                     }
+                                                    
                                                 }
                                             ?>
                                         </div>
@@ -96,7 +99,9 @@
                                                     while($batch = $result -> fetch_assoc()){
                                                         $center = $batch['centre_name'];
                                                         echo '<div class="row">';
-                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "<a href='vaccineBatches.php";
+                                                        echo "?center=$center";
+                                                        echo "&vac=Sino'>";
                                                         echo "$center";
                                                         echo '</a>';
                                                         echo '</div>';
@@ -113,12 +118,14 @@
                                                     while($batch = $result -> fetch_assoc()){
                                                         $center = $batch['centre_name'];
                                                         echo '<div class="row">';
-                                                        echo '<a href="vaccineBatches.php">';
+                                                        echo "<a href='vaccineBatches.php";
+                                                        echo "?center=$center";
+                                                        echo "&vac=Astra'>";
                                                         echo "$center";
                                                         echo '</a>';
                                                         echo '</div>';
-                                                    }
                                                 }
+                                            }
                                             ?>
                                         </div>
                                     </div>
@@ -130,7 +137,6 @@
               </main>
         </div>
       </div>
-    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

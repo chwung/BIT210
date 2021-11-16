@@ -44,8 +44,14 @@
                 </nav>
             </aside>
             <main class="col bg-info flex-grow-1">
-                <div>
-                  <p class="row h1 border-bottom border-dark ml-4 p-3 text-light" id="vaccineCenterName">Vaccine - Center Name</p> 
+                <div class="row h1 border-bottom border-dark ml-4 p-3 text-light">
+                  <?php
+                  $_SESSION['vac'] = $_GET['vac'];
+                  $_SESSION['center'] = $_GET['center'];
+                  $vac = $_SESSION['vac'];
+                  $center = $_SESSION['center']; 
+                  echo "$vac - $center";
+                  ?>
                 </div>
                 <div class="container">
                   <div class=" row align-items-center justify-content-center">
@@ -88,19 +94,39 @@
                           </div>
                         </div>
                       </div>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>BatchNo</td>
-                        <td>No</td>
-                        <td>Date</td>
-                      </tr>
+                      <?php 
+                        switch ($vac){
+                          case "Pfizer":
+                            $query = "SELECT * from pfizer_batch WHERE centre_name = '$center'";
+                            break;
+                          
+                          case "Sino":
+                            $query = "SELECT * from sino_batch WHERE centre_name = '$center'";
+                            break;
 
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>BatchNo</td>
-                        <td>No</td>
-                        <td>Date</td>
-                      </tr>
+                          case "Astra":
+                            $query = "SELECT * from astra_batch WHERE centre_name = '$center'";
+                            break;
+                        } 
+                        $result = $connection -> query($query);
+
+                        if($result -> num_rows > 0){
+                          $no = 1;
+                            while($batch = $result -> fetch_assoc()){
+                                $id = $batch['batch_id'];
+                                $quantity = $batch['quantity'];
+                                $date = $batch['expiry_date'];
+                                
+                                echo "<tr>";
+                                echo "<th scope='row'>$no</th>";
+                                echo "<td>$id</td>";
+                                echo "<td>$quantity</td>";
+                                echo "<td>$date</td>";
+                                echo "</tr>";
+                                $no++;
+                            }                            
+                        } 
+                      ?>
                     </tbody>
                     </table>
                               </div>
