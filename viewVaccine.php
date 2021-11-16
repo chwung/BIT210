@@ -13,6 +13,11 @@ $username = $_SESSION['staffUsername'];
     }
 
     $centre_name = $user_data['centre_name'];
+
+    
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,21 +90,24 @@ $username = $_SESSION['staffUsername'];
                                                     <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark" onclick="vaccineName('Pfizer')">Pfizer</a></td>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark">P0000001</a></td>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark">3</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark">Pfizer  </a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark">P0000001</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark">3</a></td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">2</th>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark" onclick="vaccineName('Sinovac')">Sinovac</a></td>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark">S0000001</a></td>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark">10</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark">Sinovac  </a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark">S0000001</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark">10</a></td>
+                                                        
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">3</th>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark" onclick="vaccineName('AstraZeneca')">AstraZeneca</a></td>
-                                                        <td ><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark">A0000001</a></td>
-                                                        <td><a href="viewBatch.php" class="nav-item mb-0 text-center text-decoration-none text-dark">5</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark">AstraZeneca </a></td>
+                                                        <td ><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark">A0000001</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark">5</a></td>
+                                                        
                                                     </tr>
                                                     </tbody>
                                                 </table>

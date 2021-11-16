@@ -1,3 +1,21 @@
+<?php
+session_start();
+include("dbcon.php");
+
+$username = $_SESSION['staffUsername'];
+    $password = $_SESSION['staffPassword'];
+    $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
+
+    $result = $connection->query($query);
+    if($result -> num_rows > 0)
+    {
+        $user_data = $result -> fetch_assoc();
+    }
+
+    $centre_name = $user_data['centre_name'];
+
+    $vaccine = $_GET['vaccine'];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,7 +58,11 @@
                 </aside>
                 <main class="col bg-info">
                     <div>
-                        <p class="row h1 border-bottom border-dark ml-4 p-3 text-dark " id="vaccineName">Vaccine Name</p>
+                        <?php
+                            echo '<p class="row h1 border-bottom border-dark ml-4 p-3 text-dark ">';
+                            echo "$vaccine";
+                            echo '</p>';
+                        ?>
                     </div>
                     
                 
@@ -63,27 +85,117 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" id="batchNumber" onclick="vaccineNameAndBatchNumber()">B0000001</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" id="available">10</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" id="expiryDate">00/00/00</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">2</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" onclick="vaccineNameAndBatchNumber()">B0000002</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" >30</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">10</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark" onclick="vaccineNameAndBatchNumber()">B0000003</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">20</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">00/00/00</a></td>
-                                                        <td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">15</a></td>
-                                                    </tr>
+                                                    
+                                                    <?php
+
+                                                        if($vaccine == "Pfizer"){
+                                                            $query = "SELECT * from pfizer_batch";
+                                                            $result = $connection -> query($query);
+                                                            $row = 1;
+                                                            
+                                                             if($result -> num_rows > 0){
+                                                                while($batch = $result -> fetch_assoc()){
+                                                                $centre = $batch['centre_name'];
+                                                                $batch_id = $batch['batch_id'];
+                                                                $expiry_date = $batch['expiry_date'];
+                                                                $quantity = $batch['quantity'];
+                                                                    if($centre == $centre_name){
+                                                                        echo "<tr>";
+                                                                        echo '<th scope="row">';
+                                                                        echo "$row";
+                                                                        echo '</th>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$batch_id";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$quantity";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$expiry_date";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "1";
+                                                                        echo '</a></td>';
+                                                                        echo "</tr>";
+                                                                        $row++;
+                                                                    }
+                                                                
+                                                                }
+                                                            die;
+                                                            }
+                                                        }else if($vaccine == "Sinovac"){
+                                                            $query = "SELECT * from sino_batch";
+                                                            $result = $connection -> query($query);
+                                                            $row = 1;
+                                                            
+                                                             if($result -> num_rows > 0){
+                                                                while($batch = $result -> fetch_assoc()){
+                                                                $centre = $batch['centre_name'];
+                                                                $batch_id = $batch['batch_id'];
+                                                                $expiry_date = $batch['expiry_date'];
+                                                                $quantity = $batch['quantity'];
+                                                                    if($centre == $centre_name){
+                                                                        echo "<tr>";
+                                                                        echo '<th scope="row">';
+                                                                        echo "$row";
+                                                                        echo '</th>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$batch_id";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$quantity";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$expiry_date";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "1";
+                                                                        echo '</a></td>';
+                                                                        echo "</tr>";
+                                                                        $row++;
+                                                                    }
+                                                                
+                                                                }
+                                                            die;
+                                                            }
+                                                        }else if($vaccine == "AstraZeneca"){
+                                                            $query = "SELECT * from  astra_batch";
+                                                            $result = $connection -> query($query);
+                                                            $row = 1;
+                                                            
+                                                             if($result -> num_rows > 0){
+                                                                while($batch = $result -> fetch_assoc()){
+                                                                $centre = $batch['centre_name'];
+                                                                $batch_id = $batch['batch_id'];
+                                                                $expiry_date = $batch['expiry_date'];
+                                                                $quantity = $batch['quantity'];
+                                                                    if($centre == $centre_name){
+                                                                        echo "<tr>";
+                                                                        echo '<th scope="row">';
+                                                                        echo "$row";
+                                                                        echo '</th>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$batch_id";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$quantity";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "$expiry_date";
+                                                                        echo '</a></td>';
+                                                                        echo '<td><a href="viewVacBat.php" class="mb-0 text-center text-decoration-none text-dark">';
+                                                                        echo "1";
+                                                                        echo '</a></td>';
+                                                                        echo "</tr>";
+                                                                        $row++;
+                                                                    }
+                                                                
+                                                                }
+                                                            }
+                                                            die;
+                                                        }
+ 
+                                                    ?>
                                                     </tbody>
                                                 </table>
                                             </div>

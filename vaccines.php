@@ -72,12 +72,12 @@
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Pfizer" data-parent="#vaccine">
                                             <?php
-                                                $query = "SELECT DISTINCT center_name from pfizer_batch";
+                                                $query = "SELECT DISTINCT centre_name from pfizer_batch";
                                                 $result = $connection -> query($query);
 
                                                 if($result -> num_rows > 0){
                                                     while($batch = $result -> fetch_assoc()){
-                                                        $center = $batch['center_name'];
+                                                        $center = $batch['centre_name'];
                                                         echo '<div class="row">';
                                                         echo '<a href="vaccineBatches.php">';
                                                         echo "$center";
@@ -89,12 +89,12 @@
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Sino" data-parent="#vaccine">
                                             <?php
-                                                $query = "SELECT DISTINCT center_name from sino_batch";
+                                                $query = "SELECT DISTINCT centre_name from sino_batch";
                                                 $result = $connection -> query($query);
 
                                                 if($result -> num_rows > 0){
                                                     while($batch = $result -> fetch_assoc()){
-                                                        $center = $batch['center_name'];
+                                                        $center = $batch['centre_name'];
                                                         echo '<div class="row">';
                                                         echo '<a href="vaccineBatches.php">';
                                                         echo "$center";
@@ -106,12 +106,12 @@
                                         </div>
                                         <div class="col-6 bg-light collapse" id="Astra" data-parent="#vaccine">
                                             <?php
-                                                $query = "SELECT DISTINCT center_name from astra_batch";
+                                                $query = "SELECT DISTINCT centre_name from astra_batch";
                                                 $result = $connection -> query($query);
 
                                                 if($result -> num_rows > 0){
                                                     while($batch = $result -> fetch_assoc()){
-                                                        $center = $batch['center_name'];
+                                                        $center = $batch['centre_name'];
                                                         echo '<div class="row">';
                                                         echo '<a href="vaccineBatches.php">';
                                                         echo "$center";
