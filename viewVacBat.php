@@ -2,7 +2,7 @@
 session_start();
 include("dbcon.php");
 
-$username = $_SESSION['staffUsername'];
+    $username = $_SESSION['staffUsername'];
     $password = $_SESSION['staffPassword'];
     $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
 
@@ -17,6 +17,10 @@ $username = $_SESSION['staffUsername'];
     $batch_id = $_GET['batch'];
     $vaccine = $_GET['vaccine'];
     $quantity = $_GET['quantity'];
+    $expiry_date = $_GET['expiry'];
+
+    
+
     
 ?>
 <!doctype html>
@@ -91,102 +95,135 @@ $username = $_SESSION['staffUsername'];
                                                     </thead>
                                                     <tbody>
                                                         <?php 
-                                                            if($vaccine == "Pfizer"){
-                                                                $row = 1;
-                                                                for($i=0; $i<$quantity; $i++){
+
+                                                            $query = "SELECT * FROM appointments WHERE batch_id = '$batch_id'";
+                                                            $appointment = $connection->query($query);
+                                                            if($appointment -> num_rows > 0)
+                                                            {
+                                                               $row = 1;
+                                                               switch($vaccine){
+                                                                   case"Pfizer";
+                                                                   $letter = "P";
+                                                                   $manufacture = "Pfizer Inc";
+                                                                   break;
+                                                                   case"Sinovac";
+                                                                   $letter = "S";
+                                                                   $manufacture = "Sinovac Biotech Ltd";
+                                                                   break;
+                                                                   case"AstraZeneca";
+                                                                   $letter = "A";
+                                                                   $manufacture = "AstraZeneca plc";
+                                                                   break;
+
+                                                               } 
+                                                                while($appointment_data = $appointment -> fetch_assoc()){
+                                                                    $appoinment_date = $appointment_data['appointment_date'];
+                                                                    $status = $appointment_data['status'];
+                                                                    $remarks = $appointment_data['remarks'];
+                                                                    $email = $appointment_data['email'];
                                                                     echo '<tr>';
                                                                     echo'<th scope="row">';
                                                                     echo "$row";
                                                                     echo'</th>';
-                                                                    echo '<td data-toggle = "modal" data-target="#approvalModal">';
-                                                                    $num_str = sprintf("%06d", rand(1, 999999));
-                                                                    echo("P" . $num_str);
+                                                                    echo "<td data-toggle = 'modal' data-target=#";
+                                                                    echo "$email'>";
+                                                                    $num_str = sprintf("%03d", $row);
+                                                                    echo($letter . $num_str);
                                                                     echo'</td>';
-                                                                    echo '<td>00/00/00</td>';
-                                                                    echo '<td></td>';
-                                                                    echo '<td id="pending">Pending</td>';
+                                                                    echo "<td>$appoinment_date</td>";
+                                                                    echo "<td>$remarks</td>";
+                                                                    echo "<td>$status</td>";
                                                                     echo '</tr>';
                                                                     $row++;
-                                                                }
-                                                            }else if($vaccine == "Sinovac"){
-                                                                $row = 1;
-                                                                for($i=0; $i<$quantity; $i++){
-                                                                    echo '<tr>';
-                                                                    echo'<th scope="row">';
-                                                                    echo "$row";
-                                                                    echo'</th>';
-                                                                    echo '<td data-toggle = "modal" data-target="#approvalModal">';
-                                                                    $num_str = sprintf("%06d", rand(1, 999999));
-                                                                    echo("S" . $num_str);
-                                                                    echo'</td>';
-                                                                    echo '<td>00/00/00</td>';
-                                                                    echo '<td></td>';
-                                                                    echo '<td id="pending">Pending</td>';
-                                                                    echo '</tr>';
-                                                                    $row++;
-                                                                }
-                                                            }else if($vaccine == "AstraZeneca"){
-                                                                $row = 1;
-                                                                for($i=0; $i<$quantity; $i++){
-                                                                    echo '<tr>';
-                                                                    echo'<th scope="row">';
-                                                                    echo "$row";
-                                                                    echo'</th>';
-                                                                    echo '<td data-toggle = "modal" data-target="#approvalModal">';
-                                                                    $num_str = sprintf("%06d", rand(1, 999999));
-                                                                    echo("A" . $num_str);
-                                                                    echo'</td>';
-                                                                    echo '<td>00/00/00</td>';
-                                                                    echo '<td></td>';
-                                                                    echo '<td id="pending">Pending</td>';
-                                                                    echo '</tr>';
-                                                                    $row++;
+
+                                                                    
+                                                                        echo '<div class="modal fade" id=';
+                                                                        echo "$email";
+                                                                        echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
+                                                                        echo  "<form method = 'POST'> ";
+                                                                        echo '<div class="modal-dialog modal-dialog-centered" role="document">';
+                                                                        echo '<div class="modal-content">';
+                                                                        echo '<div class="modal-header">';
+                                                                        echo '<h5 class="modal-title" id="approvalLabel">VaccineID</h5>';
+                                                                        echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+                                                                        echo '<span aria-hidden="true">&times;</span>';
+                                                                        echo '</button>';
+                                                                        echo '</div>';
+                                                                        echo '<div class="modal-body">';
+                                                                        echo '<div class=" container-fluid">';
+                                                                        echo '<div class="row">';
+                                                                        echo "<p class=' col-md-4' id='batch' >$batch_id</p>";
+                                                                        echo "<p class=' col-md-4' id='date' >$expiry_date</p>";
+                                                                        echo "<p class=' col-md-4' >$manufacture</p>";
+                                                                        echo '</div>';
+                                                                        echo '<div class="row">';
+                                                                        echo "<p class=' col-md-4' id='vaccine' >$vaccine</p>";
+                                                                        echo '</div>';
+                                                                        echo '<div class="row">';
+                                                                        echo '<p class=" col-md-4">Kaw Yu Zhe</p>';
+                                                                        echo '<p class=" col-md-4">011225-07-0119</p>';
+                                                                        echo '</div>';
+                                                                        echo '</div>';
+                                                                        echo '</div>';
+                                                                        echo '<div class="modal-footer">';
+                                                                        echo '<button type="button" class="btn btn-secondary" data-dismiss="modal" name ="reject" >Reject</button>';
+                                                                        echo '<button type="button" class="btn btn-primary" data-dismiss="modal" name = "confirm" >Confirm</button>';
+                                                                        echo '</div>';
+                                                                        echo '</div>';
+                                                                        echo '</div>';
+                                                                        echo "</form>";
+                                                                        echo '</div>' ;
+
+                                                                        if(isset($_POST['confirm'])){
+                                                                            $query_data = "UPDATE appointments SET status = 'Confirmed' WHERE email = '$email'";
+                                                                            $connection->query($query_data);
+
+                                                                        }else if(isset($_POST['reject'])){
+                                                                            $query_data = "UPDATE appointments SET status = 'Rejected' WHERE email = '$email'";
+                                                                            $connection->query($query_data);
+                                                                        }
+
+                                                                        
+                                                                        
+
+                                                                    
                                                                 }
                                                             }
+
+                                                            
+                                                            
+                                                                
                                                             
                                                         
                                                         ?>
-                                                    
-
-                                                        
-                                                        
-
 
                                                         <!--Modal-->
-                                                        <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                <h5 class="modal-title" id="approvalLabel">VaccineID</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class=" container-fluid">
-                                                                        <div class="row">
-                                                                            <p class=" col-md-4" id="batch" >BatchNo</p>
-                                                                            <p class=" col-md-4" id="date">ExpiryDate</p>
-                                                                            <p class=" col-md-4">Pfizer Inc.</p>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <p class=" col-md-4" id="vaccine">Vaccine Name</p>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <p class=" col-md-4">Kaw Yu Zhe</p>
-                                                                            <p class=" col-md-4">011225-07-0119</p>
-                                                                        </div>
+                                            
+                                                                
+                                                                    
+                                                                        
+                                                                            
+                                          
+                                                                            
+                                                                        
+                                                                        
+                                                                            
+                                                                        
+                                                                        
+                                                                            
+                                                                            
+                                                                        
 
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reject()">Reject</button>
-                                                                <button type="button" class="btn btn-primary" onclick="approve()" data-dismiss="modal">Confirm</button>
+                                                                    
+                                                                
+                                                                
+                                                                
+                                                                
                                     
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                        </div>
+                                                                
+                                                            
+                                                            
+                                                        
                                                         
 
                                                         
