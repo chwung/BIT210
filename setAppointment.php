@@ -15,20 +15,26 @@
             $user_data = $result -> fetch_assoc();
         }
     }
-
-    $vacid = $_SESSION['vacId'];
+    $email = $user_data['email'];
     $center = $_SESSION['center'];
     $username = $_SESSION['patientUsername'];
     $password = $_SESSION['patientPassword'];
     $_SESSION['appointmentDate'] = $_POST['appointmentDate'];
     $appointmentDate = $_SESSION['appointmentDate'];
+    $_SESSION['batch'] = $_POST['batch'];
+    $batch = $_SESSION['batch'];
     $status = "pending";
-    $remarks = null;
+    $remarks = "";
 
     echo $center;
     echo $username;
     echo $password;
     echo $appointmentDate;
+    echo $batch;
 
-    $query = "INSERT INTO appointments VALUES ('$vacid', '$status', '$appointmentDate', '$center', '$remarks' )"
+    $query = "INSERT INTO appointments VALUES ('$batch','$email', NULL, '$status', '$appointmentDate', '$center', '$remarks' )";
+
+    $connection -> query($query);
+
+    header('location: status.php');
 ?>
