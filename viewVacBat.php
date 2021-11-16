@@ -1,3 +1,24 @@
+<?php
+session_start();
+include("dbcon.php");
+
+$username = $_SESSION['staffUsername'];
+    $password = $_SESSION['staffPassword'];
+    $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
+
+    $result = $connection->query($query);
+    if($result -> num_rows > 0)
+    {
+        $user_data = $result -> fetch_assoc();
+    }
+
+    $centre_name = $user_data['centre_name'];
+
+    $batch_id = $_GET['batch'];
+    $vaccine = $_GET['vaccine'];
+    $quantity = $_GET['quantity'];
+    
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -39,7 +60,14 @@
                 </aside>
                 <main class="col bg-info">
                     <div>
-                        <p class="row h1 border-bottom border-dark ml-4 p-3 text-dark " id="vaccineAndBatchNo">Vaccine Name - Batch No</p>
+                        <?php
+                            echo '<p class="row h1 border-bottom border-dark ml-4 p-3 text-dark ">';
+                            echo "$vaccine";
+                            echo " - ";
+                            echo "$batch_id";
+                            echo '</p>';
+                        ?>
+                        
                     </div>
                     
                     <!--Table-->
@@ -62,9 +90,67 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td data-toggle = "modal" data-target="#approvalModal">P0000001</td>
+                                                        <?php 
+                                                            if($vaccine == "Pfizer"){
+                                                                $row = 1;
+                                                                for($i=0; $i<$quantity; $i++){
+                                                                    echo '<tr>';
+                                                                    echo'<th scope="row">';
+                                                                    echo "$row";
+                                                                    echo'</th>';
+                                                                    echo '<td data-toggle = "modal" data-target="#approvalModal">';
+                                                                    $num_str = sprintf("%06d", rand(1, 999999));
+                                                                    echo("P" . $num_str);
+                                                                    echo'</td>';
+                                                                    echo '<td>00/00/00</td>';
+                                                                    echo '<td></td>';
+                                                                    echo '<td id="pending">Pending</td>';
+                                                                    echo '</tr>';
+                                                                    $row++;
+                                                                }
+                                                            }else if($vaccine == "Sinovac"){
+                                                                $row = 1;
+                                                                for($i=0; $i<$quantity; $i++){
+                                                                    echo '<tr>';
+                                                                    echo'<th scope="row">';
+                                                                    echo "$row";
+                                                                    echo'</th>';
+                                                                    echo '<td data-toggle = "modal" data-target="#approvalModal">';
+                                                                    $num_str = sprintf("%06d", rand(1, 999999));
+                                                                    echo("S" . $num_str);
+                                                                    echo'</td>';
+                                                                    echo '<td>00/00/00</td>';
+                                                                    echo '<td></td>';
+                                                                    echo '<td id="pending">Pending</td>';
+                                                                    echo '</tr>';
+                                                                    $row++;
+                                                                }
+                                                            }else if($vaccine == "AstraZeneca"){
+                                                                $row = 1;
+                                                                for($i=0; $i<$quantity; $i++){
+                                                                    echo '<tr>';
+                                                                    echo'<th scope="row">';
+                                                                    echo "$row";
+                                                                    echo'</th>';
+                                                                    echo '<td data-toggle = "modal" data-target="#approvalModal">';
+                                                                    $num_str = sprintf("%06d", rand(1, 999999));
+                                                                    echo("A" . $num_str);
+                                                                    echo'</td>';
+                                                                    echo '<td>00/00/00</td>';
+                                                                    echo '<td></td>';
+                                                                    echo '<td id="pending">Pending</td>';
+                                                                    echo '</tr>';
+                                                                    $row++;
+                                                                }
+                                                            }
+                                                            
+                                                        
+                                                        ?>
+                                                    
+
+                                                        
+                                                        
+
 
                                                         <!--Modal-->
                                                         <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">
@@ -103,23 +189,14 @@
                                                         </div>
                                                         
 
-                                                        <td>00/00/00</td>
-                                                        <td></td>
-                                                        <td id="pending">Pending</td>
+                                                        
 
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>P0000002</td>
-                                                        <td>00/00/00</td>
-                                                        <td></td>
-                                                        <td>Administered</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td data-toggle = "modal" data-target="#administeredModal">P0000003</td>
+                                                    
+                                                    
+                                                    
+                                                        <!--<td data-toggle = "modal" data-target="#administeredModal">P0000003</td>-->
 
-                                                        <div class="modal fade" id="administeredModal" tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">
+                                                        <!--<div class="modal fade" id="administeredModal" tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -148,9 +225,9 @@
                                                                 <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                                 <button type="button" class="btn btn-primary" data-toggle = "modal" data-target="#remarksModal" onclick="administered()">Administered</button>
-
+                                                                -->
                                                                 <!--Modal-->
-                                                                <div class="modal fade" id="remarksModal" tabindex="-1" role="dialog" aria-labelledby="remarksLabel" aria-hidden="true">
+                                                                <!--<div class="modal fade" id="remarksModal" tabindex="-1" role="dialog" aria-labelledby="remarksLabel" aria-hidden="true">
                                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -172,17 +249,15 @@
                                                                         </div>
                                                                     </div>
                                                                     </div>
-                                                                </div>
+                                                                </div>-->
                                     
                                                                 </div>
                                                             </div>
                                                             </div>
                                                         </div>
 
-                                                        <td>00/00/00</td>
-                                                        <td id="comment"></td>
-                                                        <td id="administered">Comfirmed</td>
-                                                    </tr>
+                                                        
+                                        
                                                     </tbody>
                                                 </table>
                                             </div>
