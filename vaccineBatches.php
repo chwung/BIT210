@@ -68,32 +68,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td data-toggle="modal" data-target="#firstbatch" id="batchNo" onclick="setminmaxDate()">123456</td>
-                        <td id="amount">50</td>
-                        <td id="expiryDate">2021-12-25</td>
-                      </tr>
-                      <!-- Modal -->
-                      <div class="modal fade" id="firstbatch" tabindex="-1" aria-labelledby="firstbatch" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Select a Date</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <input type="date" id="appointmentDate" required>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="selectDate()">Confirm</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
                       <?php 
                         switch ($vac){
                           case "Pfizer":
@@ -112,6 +87,7 @@
 
                         if($result -> num_rows > 0){
                           $no = 1;
+                          $today = date("Y-m-d");
                             while($batch = $result -> fetch_assoc()){
                                 $id = $batch['batch_id'];
                                 $quantity = $batch['quantity'];
@@ -119,10 +95,43 @@
                                 
                                 echo "<tr>";
                                 echo "<th scope='row'>$no</th>";
-                                echo "<td>$id</td>";
-                                echo "<td>$quantity</td>";
-                                echo "<td>$date</td>";
+                                echo "<td data-toggle='modal' data-target=#";
+                                echo "$id";
+                                echo " id='batchNo' onclick='setminmaxDate()'>";
+                                echo "$id";
+                                echo "</td>";
+                                echo "<td id='quantity.$no'>$quantity</td>";
+                                echo "<td id='date.$no'>$date</td>";
                                 echo "</tr>";
+
+
+                                echo '<div class="modal fade" id=';
+                                echo "$id"; 
+                                echo ' tabindex="-1" aria-labelledby="firstbatch" aria-hidden="true">';
+
+                                echo "<form method='POST' action='setAppointment.php'>";
+
+                                echo '<div class="modal-dialog">';
+                                echo '<div class="modal-content">';
+                                echo '<div class="modal-header">';
+                                echo '<h5 class="modal-title">Select a Date</h5>';
+                                echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+                                echo '<span aria-hidden="true">&times;</span>';
+                                echo '</button>';
+                                echo '</div>';
+                                echo '<div class="modal-body">';
+                                echo "   <input name='appointmentDate' type='date' min='$today' max='$date' required>";
+                                echo '</div>';
+                                echo ' <div class="modal-footer">';
+                                echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
+                                echo '<button type="submit" class="btn btn-primary"  onclick="//selectDate()">Confirm</button>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+
+                                echo "</form>";
+
+                                echo '</div>';
                                 $no++;
                             }                            
                         } 
