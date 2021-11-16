@@ -114,13 +114,14 @@
                                 echo '<div class="modal-dialog">';
                                 echo '<div class="modal-content">';
                                 echo '<div class="modal-header">';
-                                echo '<h5 class="modal-title">Select a Date</h5>';
+                                echo "<h5 class='modal-title'>Select a Date For Your Appointment ('$id')</h5>";
                                 echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
                                 echo '<span aria-hidden="true">&times;</span>';
                                 echo '</button>';
                                 echo '</div>';
                                 echo '<div class="modal-body">';
                                 echo "   <input name='appointmentDate' type='date' min='$today' max='$date' required>";
+                                echo "   <input name='batch' type='hidden' value='$id'>";
                                 echo '</div>';
                                 echo ' <div class="modal-footer">';
                                 echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
