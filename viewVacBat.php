@@ -4,15 +4,7 @@ include("dbcon.php");
 
     $username = $_SESSION['staffUsername'];
     $password = $_SESSION['staffPassword'];
-    $query = "SELECT * FROM staffs WHERE username = '$username' AND password = '$password'";
-
-    $result = $connection->query($query);
-    if($result -> num_rows > 0)
-    {
-        $user_data = $result -> fetch_assoc();
-    }
-
-    $centre_name = $user_data['centre_name'];
+    
 
     $batch_id = $_GET['batch'];
     $vaccine = $_GET['vaccine'];
@@ -114,33 +106,45 @@ include("dbcon.php");
                                                                    $letter = "A";
                                                                    $manufacture = "AstraZeneca plc";
                                                                    break;
+                                                               }
 
-                                                               } 
-                                                                while($appointment_data = $appointment -> fetch_assoc()){
-                                                                    $appoinment_date = $appointment_data['appointment_date'];
+                                                                   while($appointment_data = $appointment -> fetch_assoc()){
+                                                                    
+                                                                    $email = $appointment_data['email'];
+                                                                    $patQuery = "SELECT * FROM patients WHERE email = '$email'";
+                                                                    $patient = $connection->query($patQuery);
+                                                                    if($patient -> num_rows > 0)
+                                                                    {
+                                                                        $user_data = $patient -> fetch_assoc();
+                                                                    }
+                                                                    $appointment_date = $appointment_data['appointment_date'];
                                                                     $status = $appointment_data['status'];
                                                                     $remarks = $appointment_data['remarks'];
-                                                                    $email = $appointment_data['email'];
+                                                                    
+                                                                    $name = $user_data['username'];
+                                                                    $ic = $user_data['ic'];
+                                                                    
                                                                     echo '<tr>';
                                                                     echo'<th scope="row">';
                                                                     echo "$row";
                                                                     echo'</th>';
-                                                                    echo "<td data-toggle = 'modal' data-target=#";
-                                                                    echo "$email'>";
+                                                                    echo "<td data-toggle='modal' data-target=#";
+                                                                    echo "$name>";
                                                                     $num_str = sprintf("%03d", $row);
                                                                     echo($letter . $num_str);
                                                                     echo'</td>';
-                                                                    echo "<td>$appoinment_date</td>";
+                                                                    echo "<td>$appointment_date</td>";
                                                                     echo "<td>$remarks</td>";
                                                                     echo "<td>$status</td>";
                                                                     echo '</tr>';
                                                                     $row++;
-
                                                                     
                                                                         echo '<div class="modal fade" id=';
-                                                                        echo "$email";
+                                                                        echo "$name";
                                                                         echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
+                                                                        
                                                                         echo  "<form method = 'POST'> ";
+
                                                                         echo '<div class="modal-dialog modal-dialog-centered" role="document">';
                                                                         echo '<div class="modal-content">';
                                                                         echo '<div class="modal-header">';
@@ -153,15 +157,15 @@ include("dbcon.php");
                                                                         echo '<div class=" container-fluid">';
                                                                         echo '<div class="row">';
                                                                         echo "<p class=' col-md-4' id='batch' >$batch_id</p>";
-                                                                        echo "<p class=' col-md-4' id='date' >$expiry_date</p>";
+                                                                        echo "<p class=' col-md-4' id='date' >$appointment_date</p>";
                                                                         echo "<p class=' col-md-4' >$manufacture</p>";
                                                                         echo '</div>';
                                                                         echo '<div class="row">';
                                                                         echo "<p class=' col-md-4' id='vaccine' >$vaccine</p>";
                                                                         echo '</div>';
                                                                         echo '<div class="row">';
-                                                                        echo '<p class=" col-md-4">Kaw Yu Zhe</p>';
-                                                                        echo '<p class=" col-md-4">011225-07-0119</p>';
+                                                                        echo "<p class=' col-md-4'>$name</p>";
+                                                                        echo "<p class=' col-md-4'>$ic</p>";
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '</div>';
@@ -171,7 +175,9 @@ include("dbcon.php");
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '</div>';
+
                                                                         echo "</form>";
+                                                                        
                                                                         echo '</div>' ;
 
                                                                         if(isset($_POST['confirm'])){
@@ -182,13 +188,13 @@ include("dbcon.php");
                                                                             $query_data = "UPDATE appointments SET status = 'Rejected' WHERE email = '$email'";
                                                                             $connection->query($query_data);
                                                                         }
-
                                                                         
                                                                         
-
-                                                                    
                                                                 }
-                                                            }
+
+                                                               } 
+                                                                
+                                                            
 
                                                             
                                                             
