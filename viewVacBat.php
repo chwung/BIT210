@@ -8,6 +8,7 @@ include("dbcon.php");
 
     $batch_id = $_GET['batch'];
     $vaccine = $_GET['vaccine'];
+    $quantity = $_GET['quantity'];
     $expiry_date = $_GET['expiry'];
     $_SESSION['batchID'] = $batch_id;
     $_SESSION['appVaccine'] = $vaccine;
@@ -191,6 +192,13 @@ include("dbcon.php");
                                                                         echo "</form>";
                                                                         echo '</div>' ;
 
+                                                                        if(isset($_POST['submit'])){
+                                                                            $query_data = "UPDATE appointments SET status='Confirmed' WHERE email = '$email'";
+                                                                            $connection->query($query_data);
+                                                                        }else if(isset($_POST['reject'])){
+                                                                            $query_data = "UPDATE appointments SET status= 'Rejected' WHERE email = '$email'";
+                                                                            $connection->query($query_data);
+                                                                        }
                                                                         
                                                                 }
                                                                 
