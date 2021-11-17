@@ -1,0 +1,20 @@
+<?php
+session_start();
+include("dbcon.php");
+
+$email = $_POST['email'];
+$batch_id = $_SESSION['batchID'];
+$vaccine = $_SESSION['appVaccine'];
+$expiry_date = $_SESSION['appExp'];
+
+if(isset($_POST['submit'])){
+    $query_data = "UPDATE appointments SET status='Confirmed' WHERE email = '$email'";
+    $connection->query($query_data);
+}else if(isset($_POST['reject'])){
+    $query_data = "UPDATE appointments SET status= 'Rejected' WHERE email = '$email'";
+    $connection->query($query_data);
+}
+
+header("location: viewVacBat.php?batch=$batch_id&vaccine=$vaccine&expiry=$expiry_date");
+
+?>
