@@ -8,7 +8,6 @@ include("dbcon.php");
 
     $batch_id = $_GET['batch'];
     $vaccine = $_GET['vaccine'];
-    $quantity = $_GET['quantity'];
     $expiry_date = $_GET['expiry'];
 
     /*if(isset($_POST['submit'])){
@@ -126,11 +125,6 @@ include("dbcon.php");
                                                                     $appointment_date = $appointment_data['appointment_date'];
                                                                     $status = $appointment_data['status'];
                                                                     $remarks = $appointment_data['remarks'];
-<<<<<<< HEAD
-=======
-                                                                    $email = $appointment_data['email'];
-                                                                    $num_str = sprintf("%03d", $row);
->>>>>>> 448b365fc74cb3950f9f94fc70eeccfb0c5c0c89
                                                                     
                                                                     $name = $user_data['username'];
                                                                     $ic = $user_data['ic'];
@@ -150,21 +144,12 @@ include("dbcon.php");
                                                                     echo '</tr>';
                                                                     $row++;
 
-<<<<<<< HEAD
                                                                         
                                                                         echo '<div class="modal fade" id=';
                                                                         echo "$name";
                                                                         echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
                                                                         
                                                                         echo  "<form method='POST'> ";
-=======
-
-                                                                        echo '<div class="modal fade" id=';
-                                                                        echo "$email";
-                                                                        echo 'tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
-                                                                        echo  "<form method = 'POST'> ";
-
->>>>>>> 448b365fc74cb3950f9f94fc70eeccfb0c5c0c89
                                                                         echo '<div class="modal-dialog modal-dialog-centered" role="document">';
                                                                         echo '<div class="modal-content">';
                                                                         echo '<div class="modal-header">';
@@ -190,22 +175,23 @@ include("dbcon.php");
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '<div class="modal-footer">';
-                                                                        echo '<button type="button" class="btn btn-secondary" data-dismiss="modal" name="reject" >Reject</button>';
-                                                                        echo '<button type="submit" class="btn btn-primary" data-dismiss="modal" name="submit" >Confirm</button>';
+                                                                        echo '<button type="submit" class="btn btn-secondary" name="reject" >Reject</button>';
+                                                                        echo '<button type="submit" class="btn btn-primary" name="submit" >Confirm</button>';
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo "</form>";
                                                                         echo '</div>' ;
 
-                                                                        if(isset($_POST['submit'])){
-                                                                            $query_data = "UPDATE appointments SET status='Confirmed' WHERE email = '$email'";
-                                                                            $connection->query($query_data);
-                                                                        }else if(isset($_POST['reject'])){
-                                                                            $query_data = "UPDATE appointments SET status= 'Rejected' WHERE email = '$email'";
-                                                                            $connection->query($query_data);
-                                                                        }
                                                                         
+                                                                        
+                                                                }
+                                                                if(isset($_POST['submit'])){
+                                                                    $query_data = "UPDATE appointments SET status='Confirmed' WHERE email = '$email'";
+                                                                    $connection->query($query_data);
+                                                                }else if(isset($_POST['reject'])){
+                                                                    $query_data = "UPDATE appointments SET status= 'Rejected' WHERE email = '$email'";
+                                                                    $connection->query($query_data);
                                                                 }
 
                                                                } 
