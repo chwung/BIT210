@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         while($staff = $data -> fetch_assoc()){
                             $centre = $staff['centre_name'];
                             $add = $staff['centre_address'];
-                            echo "<option value='$centre - $count'>";
+                            echo "<option value='$centre / $add'>";
                             echo "$centre"; 
                             echo '</option>';
                             $count++;
@@ -95,11 +95,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                   ?>
                   <script>
                     function myFunction(){
-                    var centre = $('#choose').val().split('-')[0];
-                    var address = $('#choose').val().split('-')[1];
+                    var centre = $('#choose').val().split('/')[0];
+                    var address = $('#choose').val().split('/')[1];
 
                     document.getElementById("centre").value = centre;
-                    document.getElementById("address").value = address;
+                    document.getElementById("address").innerHTML = address;
                     }
                    </script>;
 
