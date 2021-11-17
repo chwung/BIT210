@@ -24,19 +24,97 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     
     if (isset($_POST['submit'])){
-        if($_POST['vaccine'] == 'pfizer'){
-            $sqlQuery = "INSERT INTO pfizer_batch VALUES ('$centre_name','$batch_id', '$expiry_date', '$quantity')";
-		    $result = $connection -> query($sqlQuery);  //execute query (php)
 
-        }else if($_POST['vaccine'] == 'sinovac'){
-            $sqlQuery = "INSERT INTO sino_batch VALUES ('$centre_name','$batch_id', '$expiry_date', '$quantity')";
-            $result = $connection -> query($sqlQuery);  //execute query (php)
+        if(!is_numeric($batch_id) || strlen($batch_id) != 6){
+            echo '<script type="text/javascript">';
+            echo 'alert("Batch ID should not have alphabet and only six numbers");';
+            echo 'window.location.href="addBatch.php";';
+            echo '</script>';
+          
+        }else if($quantity == 0){
+                echo '<script type="text/javascript">';
+                echo 'alert("Quantity should not be zero.");';
+                echo 'window.location.href="addBatch.php";';
+                echo '</script>';
+                
+            }else {
+                if($_POST['vaccine'] == 'pfizer'){
+                    $vacbatchID = "P" . $batch_id;
+                    $flag = 0;
+            
+                    $query = "SELECT * FROM pfizer_batch";
+                    $data = $connection->query($query);
 
-        }else if($_POST['vaccine'] == 'astrazeneca'){
-            $sqlQuery = "INSERT INTO astra_batch VALUES ('$centre_name','$batch_id', '$expiry_date', '$quantity')";
-            $result = $connection -> query($sqlQuery);  //execute query (php)
+                    
+        
+                    if($data -> num_rows > 0){                        
+                        while ($row = $data -> fetch_assoc()) {
+                            if ($vacbatchID == $row["batch_id"]){
+                                $flag = 1;
+                                }
+                        }
+                    }
 
-        }                            
+                    if ($flag == 1){                                  
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Batch already exists.");';
+                        echo '</script>';
+        
+                    }else{
+                        $sqlQuery = "INSERT INTO pfizer_batch VALUES ('$centre_name','$vacbatchID', '$expiry_date', '$quantity')";
+                        $result = $connection -> query($sqlQuery);  //execute query (php)
+                    }    
+
+                }else if($_POST['vaccine'] == 'sinovac'){
+                    $vacbatchID = "S" . $batch_id;
+                    $flag = 0;
+            
+                    $query = "SELECT * FROM sino_batch";
+                    $data = $connection->query($query);
+            
+                    if($data -> num_rows > 0){                        
+                        while ($row = $data -> fetch_assoc()) {
+                            if ($vacbatchID == $row["batch_id"]){
+                                $flag = 1;
+                                }
+                        }
+                    }
+                    if ($flag == 1){                                  
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Batch already exists.");';
+                        echo '</script>';
+        
+                    }else{
+                        $sqlQuery = "INSERT INTO sino_batch VALUES ('$centre_name','$vacbatchID', '$expiry_date', '$quantity')";
+                        $result = $connection -> query($sqlQuery);  //execute query (php)
+                    }
+
+                }else if($_POST['vaccine'] == 'astrazeneca'){
+                    $vacbatchID = "A" . $batch_id;
+                    $flag = 0;
+            
+                    $query = "SELECT * FROM astra_batch";
+                    $data = $connection->query($query);
+            
+                    if($data -> num_rows > 0){                        
+                        while ($row = $data -> fetch_assoc()) {
+                            if ($vacbatchID == $row["batch_id"]){
+                                $flag = 1;
+                                }
+                        }
+                    }
+                    if ($flag == 1){                                  
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Batch already exists.");';
+                        echo '</script>';
+        
+                    }else{
+                        $sqlQuery = "INSERT INTO astra_batch VALUES ('$centre_name','$vacbatchID', '$expiry_date', '$quantity')";
+                        $result = $connection -> query($sqlQuery);  //execute query (php)
+                    }
+                }
+            }
+                                    
     }
     
 }
@@ -155,9 +233,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                                 echo "Added Batch";
                                                 
                                                 if (isset($_POST['submit'])){
-                                                    echo '<li class="list-group-item d-flex justify-content-between align-items-center form-control" id="batch1">';
-                                                    echo " Batch ID:" . $batch_id . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Date:" . $expiry_date . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity:" . $quantity;
-                                                    echo '</li>';  
+                                                    if(is_numeric($batch_id) & $quantity != 0){
+                                                
+                                                        echo '<li class="list-group-item d-flex justify-content-between align-items-center form-control" id="batch1">';
+                                                        echo " Batch ID:" . $vacbatchID  . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Date:" . $expiry_date . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity:" . $quantity;
+                                                        echo '</li>';  
+                                                    }
+          
                                                 }
                                                 
                                                 ?>
