@@ -25,11 +25,9 @@
     $batch = $_SESSION['batch'];
     $status = "Pending";
     $remarks = "";
+    $vac = $_SESSION['vac'];
+    
 
-    echo $center;
-    echo $username;
-    echo $password;
-    echo $appointmentDate;
     echo $batch;
 
     $check = "SELECT * FROM appointments WHERE email = '$email'";
@@ -44,6 +42,24 @@
         else{
             $query = "INSERT INTO appointments VALUES ('$batch','$email', NULL, '$status', '$appointmentDate', '$center', '$remarks' )";
             $connection -> query($query);
+
+            switch ($vac){
+                case "Pfizer":
+                  $update = "UPDATE pfizer_batch SET quantity = quantity - 1 WHERE batch_id = '$batch'";
+                  $connection -> query($update);
+                  break;
+                
+                case "Sino":
+                  $update = "UPDATE sino_batch SET quantity = quantity - 1 WHERE batch_id = '$batch'";
+                  $connection -> query($update);
+                  break;
+        
+                case "Astra":
+                  $update = "UPDATE pfizer_batch SET quantity = quantity - 1 WHERE batch_id = '$batch'";
+                  $connection -> query($update);
+                  break;
+              } 
+
             header('location: status.php');
         }
 
