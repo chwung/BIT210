@@ -34,11 +34,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         } else {                                        //user doer not exists
             $sqlQuery = "INSERT INTO STAFFS VALUES ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
 			      $result = $connection -> query($sqlQuery);  //execute query (php)
-				  if ($result == TRUE){                   //check status of query
-                    header("location: login.php");
-                    die;
-				}
-     }
+				    if ($result == TRUE){                   //check status of query
+                header("location: login.php");
+                die;
+			  	}
+        }
 }
 ?>
 
@@ -70,21 +70,50 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 </select>
             </div>
             <div class="mb-4">
-                <label for="selectCentre" class="form-label font-weight-bold">Centre Name</label>
-                <input type="text" id="centre" name="centreName" class="form-control" placeholder="Centre Name"/>
-                <br>
-                <select id="select" class=" form-control">
-                    <option value="">--Choose a centre--</option>
-                    <option value="centre1">Centre 1</option>
-                    <option value="centre2">Centre 2</option>
-                </select>
                 
+                <select id="select" class=" form-control" name ="select">
+                  <option >--Choose a centre--</option>
+                
+                  <?php
+                    $query = "SELECT DISTINCT centre_name from staffs";
+                    $data = $connection -> query($query);
+                    if($data -> num_rows > 0){
+                        while($staff = $data -> fetch_assoc()){
+                            $centre = $staff['centre_name'];
+                            $add = $staff['centre_address'];
+                            echo "<option value='$centre'>";
+                            echo "$centre"; 
+                            echo '</option>';
+                        }
+                    }
+
+                    echo '<script>';
+                    echo "const select = document.getElementById('select');";
+                    echo "select.addEventListener('change', choice);";
+                    echo 'function choice()';
+                    echo '{';
+                    echo 'const choice = select.value;';
+                    echo " if(choice === '$centre')";
+                    echo '{';
+                    echo "document.getElementById('centre').value = '$centre';";
+                    echo "document.getElementById('address').innerHTML = '$add';";
+                    echo '}';
+                    echo '}';
+                    echo '</script>';
+
+                  ?>
+                  </select>
+
             </div>
             <div class="mb-4">
-              
+                <label for="selectCentre" class="form-label font-weight-bold">Centre Name</label>
+                <input type="text" id="centre" name="centreName" class="form-control" placeholder="Centre Name"/>
+                
+                <br>
                 <label for="address" class="form-label font-weight-bold">Centre Address</label>
                 <br>
                 <textarea name="address" id="address" rows="5" placeholder="Centre Address" style="width: 100%;"></textarea>
+                
 
             </div>
             <div class="mb-4">
@@ -131,7 +160,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     <script src="Javascript.js"></script>
-    <script src="SelectCentre.js"></script>
 
   </body>
 </html>
