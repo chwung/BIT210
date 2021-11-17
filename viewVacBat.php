@@ -10,6 +10,9 @@ include("dbcon.php");
     $vaccine = $_GET['vaccine'];
     $quantity = $_GET['quantity'];
     $expiry_date = $_GET['expiry'];
+    $_SESSION['batchID'] = $batch_id;
+    $_SESSION['appVaccine'] = $vaccine;
+    $_SESSION['appExp'] = $expiry_date;
 
     /*if(isset($_POST['submit'])){
         $query_data = "UPDATE 'appointments' SET status='Confirmed' WHERE email = '$email'";
@@ -126,6 +129,11 @@ include("dbcon.php");
                                                                     $appointment_date = $appointment_data['appointment_date'];
                                                                     $status = $appointment_data['status'];
                                                                     $remarks = $appointment_data['remarks'];
+<<<<<<< HEAD
+=======
+                                                                    $email = $appointment_data['email'];
+                                                                    $num_str = sprintf("%03d", $row);
+>>>>>>> fab8827c67ee1f2de0e90315503abbf55bd8dc84
                                                                     
                                                                     $name = $user_data['username'];
                                                                     $ic = $user_data['ic'];
@@ -137,7 +145,8 @@ include("dbcon.php");
                                                                     echo "<td data-toggle='modal' data-target=#";
                                                                     echo "$name>";
                                                                     $num_str = sprintf("%03d", $row);
-                                                                    echo($letter . $num_str);
+                                                                    $vaccinationID = $letter.$num_str;
+                                                                    echo($vaccinationID);
                                                                     echo'</td>';
                                                                     echo "<td>$appointment_date</td>";
                                                                     echo "<td>$remarks</td>";
@@ -150,7 +159,7 @@ include("dbcon.php");
                                                                         echo "$name";
                                                                         echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
                                                                         
-                                                                        echo  "<form method='POST'> ";
+                                                                        echo  "<form method='POST' action='confirm.php'> ";
                                                                         echo '<div class="modal-dialog modal-dialog-centered" role="document">';
                                                                         echo '<div class="modal-content">';
                                                                         echo '<div class="modal-header">';
@@ -172,6 +181,8 @@ include("dbcon.php");
                                                                         echo '<div class="row">';
                                                                         echo "<p class=' col-md-4'>$name</p>";
                                                                         echo "<p class=' col-md-4'>$ic</p>";
+                                                                        echo "<input type='hidden' name='email' value='$email'>";
+                                                                        echo "<input type='hidden' name='vaccID' value='$vaccinationID'>";
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '</div>';
@@ -193,6 +204,7 @@ include("dbcon.php");
                                                                         }
                                                                         
                                                                 }
+                                                                
 
                                                                } 
                                                                 
