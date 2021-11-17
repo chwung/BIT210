@@ -129,11 +129,8 @@ include("dbcon.php");
                                                                     $appointment_date = $appointment_data['appointment_date'];
                                                                     $status = $appointment_data['status'];
                                                                     $remarks = $appointment_data['remarks'];
-<<<<<<< HEAD
-=======
                                                                     $email = $appointment_data['email'];
                                                                     $num_str = sprintf("%03d", $row);
->>>>>>> fab8827c67ee1f2de0e90315503abbf55bd8dc84
                                                                     
                                                                     $name = $user_data['username'];
                                                                     $ic = $user_data['ic'];
