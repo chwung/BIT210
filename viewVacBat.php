@@ -202,106 +202,13 @@ include("dbcon.php");
                                                                         echo '</div>' ;
 
   
-                                                                }
+                                                                    }
                                                                 
 
                                                                } 
                                                                 
                                                         
-                                                        ?>
-
-                                                        
-
-                                                        <!--Modal-->
-                                            
-                                                                
-                                                                    
-                                                                        
-                                                                            
-                                          
-                                                                            
-                                                                        
-                                                                        
-                                                                            
-                                                                        
-                                                                        
-                                                                            
-                                                                            
-                                                                        
-
-                                                                    
-                                                                
-                                                                
-                                                                
-                                                                
-                                    
-                                                                
-                                                            
-                                                            
-                                                        
-                                                        
-
-                                                        
-
-                                                    
-                                                    
-                                                    
-                                                        <!--<td data-toggle = "modal" data-target="#administeredModal">P0000003</td>-->
-
-                                                        <!--<div class="modal fade" id="administeredModal" tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                <h5 class="modal-title" id="administeredLabel">VaccineID</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class=" container-fluid">
-                                                                        <div class="row">
-                                                                            <p class=" col-md-4" id="administeredbatch">BatchNo</p>
-                                                                            <p class=" col-md-4" id="administereddate">ExpiryDate</p>
-                                                                            <p class=" col-md-4">Pfizer Inc.</p>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <p class=" col-md-4" id="administeredvaccine">Vaccine Name</p>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <p class=" col-md-4">Wong Wei Chong</p>
-                                                                            <p class=" col-md-4">010830-10-1505</p>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary" data-toggle = "modal" data-target="#remarksModal" onclick="administered()">Administered</button>
-                                                                -->
-                                                                <!--Modal-->
-                                                                <!--<div class="modal fade" id="remarksModal" tabindex="-1" role="dialog" aria-labelledby="remarksLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="mb-4">
-                                                                                <label for="Remarks" class="form-label font-weight-bold">Remarks</label>
-                                                                                <br>
-                                                                                <textarea class=" w-100" name="Remarks" id="remarks" rows="5" required></textarea>
-                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-primary" onclick="setRemarks()" data-dismiss="modal">Save changes</button>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
-                                                                </div>-->
+                                                        ?>-
                                     
                                                                 </div>
                                                             </div>
