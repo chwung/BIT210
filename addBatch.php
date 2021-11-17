@@ -233,7 +233,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                                                 echo "Added Batch";
                                                 
                                                 if (isset($_POST['submit'])){
-                                                    if(is_numeric($batch_id) & $quantity != 0){
+                                                    if(is_numeric($batch_id) && $quantity != 0 && $flag == 0){
                                                 
                                                         echo '<li class="list-group-item d-flex justify-content-between align-items-center form-control" id="batch1">';
                                                         echo " Batch ID:" . $vacbatchID  . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Date:" . $expiry_date . " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity:" . $quantity;
