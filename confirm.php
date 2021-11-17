@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
     $query_data = "UPDATE appointments SET status='Confirmed' , vaccination_id='$vacc' WHERE email = '$email'";
     $connection->query($query_data);
 }else if(isset($_POST['reject'])){
-    $query_data = "UPDATE appointments SET status= 'Rejected' WHERE email = '$email'";
+    $query_data = "UPDATE appointments SET status='Rejected' WHERE email = '$email'";
     $connection->query($query_data);
 }
 
