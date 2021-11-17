@@ -16,11 +16,22 @@
         }
         $email = $user_data['email'];
 
+        $id = "";
+        $status = "";
+        $center = "";
+        $date = "";
+
         $appQuery = "SELECT * FROM appointments WHERE email = '$email'";
         $data = $connection->query($appQuery);
         if($data -> num_rows > 0)
         {
             $user_app = $data -> fetch_assoc();
+
+            $id = $user_app['vaccination_id'];
+            $status = $user_app['status'];
+            $center = $user_app['appointment_center'];
+            $date = $user_app['appointment_date'];
+
         }
     }
 ?>
@@ -79,27 +90,27 @@
                                             <dt class="col-sm-3">Vaccination ID</dt>
                                             <?php
                                             echo '<dd class="col-sm-9"> ';
-                                            echo $user_app['vaccination_id'];
+                                            echo $id;
                                             echo '</dd>';
                                             ?>
                                             <dt class="col-sm-3">Status</dt>
                                             <?php
                                             echo '<dd class="col-sm-9"> ';
-                                            echo $user_app['status'];
+                                            echo $status;
                                             echo '</dd>';
                                             ?>
 
                                             <dt class="col-sm-6">Appointment Date</dt>
                                             <?php
                                             echo '<dd class="col-sm-9"> ';
-                                            echo $user_app['appointment_date'];
+                                            echo $date;
                                             echo '</dd>';
                                             ?>
 
                                             <dt class="col-sm-6">Appointment Center</dt>
                                             <?php
                                             echo '<dd class="col-sm-9"> ';
-                                            echo $user_app['appointment_center'];
+                                            echo $center;
                                             echo '</dd>';
                                             ?>
                                         </dl>
