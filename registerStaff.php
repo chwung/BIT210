@@ -40,6 +40,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 			  	}
         }
 }
+
+                    
 ?>
 
 <!doctype html>
@@ -71,37 +73,36 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             </div>
             <div class="mb-4">
                 
-                <select id="select" class=" form-control" name ="select">
+                <select id="choose" class=" form-control" name ="choose" onchange ="myFunction()">
                   <option >--Choose a centre--</option>
                 
                   <?php
                     $query = "SELECT DISTINCT centre_name from staffs";
                     $data = $connection -> query($query);
                     if($data -> num_rows > 0){
+                        $count = 1;
                         while($staff = $data -> fetch_assoc()){
                             $centre = $staff['centre_name'];
                             $add = $staff['centre_address'];
-                            echo "<option value='$centre'>";
+                            echo "<option value='$centre - $count'>";
                             echo "$centre"; 
                             echo '</option>';
+                            $count++;
+
                         }
                     }
 
-                    echo '<script>';
-                    echo "const select = document.getElementById('select');";
-                    echo "select.addEventListener('change', choice);";
-                    echo 'function choice()';
-                    echo '{';
-                    echo 'const choice = select.value;';
-                    echo " if(choice === '$centre')";
-                    echo '{';
-                    echo "document.getElementById('centre').value = '$centre';";
-                    echo "document.getElementById('address').innerHTML = '$add';";
-                    echo '}';
-                    echo '}';
-                    echo '</script>';
-
                   ?>
+                  <script>
+                    function myFunction(){
+                    var centre = $('#choose').val().split('-')[0];
+                    var address = $('#choose').val().split('-')[1];
+
+                    document.getElementById("centre").value = centre;
+                    document.getElementById("address").value = address;
+                    }
+                   </script>;
+
                   </select>
 
             </div>
