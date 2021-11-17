@@ -120,48 +120,31 @@ include("dbcon.php");
                                                                     $appointment_date = $appointment_data['appointment_date'];
                                                                     $status = $appointment_data['status'];
                                                                     $remarks = $appointment_data['remarks'];
-<<<<<<< HEAD
                                                                     $email = $appointment_data['email'];
                                                                     $num_str = sprintf("%03d", $row);
-=======
                                                                     
                                                                     $name = $user_data['username'];
                                                                     $ic = $user_data['ic'];
                                                                     
->>>>>>> fc8857e3e39d10740f312de9414445efa57ad9e6
                                                                     echo '<tr>';
                                                                     echo'<th scope="row">';
                                                                     echo "$row";
                                                                     echo'</th>';
-<<<<<<< HEAD
-                                                                    echo "<td data-toggle = 'modal' data-target=#";
-                                                                    echo "$email'>";
-                                                                    echo "$letter$num_str";
-=======
                                                                     echo "<td data-toggle='modal' data-target=#";
                                                                     echo "$name>";
                                                                     $num_str = sprintf("%03d", $row);
                                                                     echo($letter . $num_str);
->>>>>>> fc8857e3e39d10740f312de9414445efa57ad9e6
                                                                     echo'</td>';
                                                                     echo "<td>$appointment_date</td>";
                                                                     echo "<td>$remarks</td>";
                                                                     echo "<td>$status</td>";
                                                                     echo '</tr>';
                                                                     $row++;
-<<<<<<< HEAD
 
 
                                                                         echo '<div class="modal fade" id=';
                                                                         echo "$email";
                                                                         echo 'tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
-=======
-                                                                    
-                                                                        echo '<div class="modal fade" id=';
-                                                                        echo "$name";
-                                                                        echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
-                                                                        
->>>>>>> fc8857e3e39d10740f312de9414445efa57ad9e6
                                                                         echo  "<form method = 'POST'> ";
 
                                                                         echo '<div class="modal-dialog modal-dialog-centered" role="document">';
