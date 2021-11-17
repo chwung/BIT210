@@ -23,7 +23,7 @@
     $appointmentDate = $_SESSION['appointmentDate'];
     $_SESSION['batch'] = $_POST['batch'];
     $batch = $_SESSION['batch'];
-    $status = "pending";
+    $status = "Pending";
     $remarks = "";
 
     echo $center;
