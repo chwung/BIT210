@@ -104,7 +104,7 @@
                                 echo "<td>$date</td>";
                                 echo "</tr>";
 
-
+                                if($quantity != 0){
                                 echo '<div class="modal fade" id=';
                                 echo "$id"; 
                                 echo ' tabindex="-1" aria-labelledby="firstbatch" aria-hidden="true">';
@@ -134,6 +134,7 @@
 
                                 echo '</div>';
                                 $no++;
+                              }
                             }                            
                         } 
                       ?>
