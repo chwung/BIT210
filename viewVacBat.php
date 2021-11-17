@@ -13,14 +13,6 @@ include("dbcon.php");
     $_SESSION['appVaccine'] = $vaccine;
     $_SESSION['appExp'] = $expiry_date;
 
-    /*if(isset($_POST['submit'])){
-        $query_data = "UPDATE 'appointments' SET status='Confirmed' WHERE email = '$email'";
-        $connection->query($query_data);
-    }else if(isset($_POST['reject'])){
-        $query_data = "UPDATE 'appointments' SET status= 'Rejected' WHERE email = '$email'";
-        $connection->query($query_data);
-    }*/
-
     
 ?>
 <!doctype html>

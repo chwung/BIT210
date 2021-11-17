@@ -14,6 +14,19 @@ $username = $_SESSION['staffUsername'];
 
     $centre_name = $user_data['centre_name'];
 
+    $sqlQuery = "SELECT * from appointments WHERE (batch_id LIKE 'P%' AND appointment_center = '$centre_name')";
+    $data = $connection->query($sqlQuery);
+    $pfizer_count = $data-> num_rows;
+
+    $sqlQuery2 = "SELECT * from appointments WHERE (batch_id LIKE 'S%' AND appointment_center = '$centre_name')";
+    $data2 = $connection->query($sqlQuery2);
+    $sino_count = $data2-> num_rows;
+
+    $sqlQuery3 = "SELECT * from appointments WHERE (batch_id LIKE 'A%' AND appointment_center = '$centre_name')";
+    $data3 = $connection->query($sqlQuery3);
+    $astra_count = $data3-> num_rows;
+    
+    
     
 
 
@@ -92,21 +105,21 @@ $username = $_SESSION['staffUsername'];
                                                         <th scope="row">1</th>
                                                         <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark">Pfizer  </a></td>
                                                         <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark">P0000001</a></td>
-                                                        <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark">3</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Pfizer" class="nav-item mb-0 text-center text-decoration-none text-dark"><?php echo $pfizer_count; ?></a></td>
                                                         
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">2</th>
                                                         <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark">Sinovac  </a></td>
                                                         <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark">S0000001</a></td>
-                                                        <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark">10</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=Sinovac" class="nav-item mb-0 text-center text-decoration-none text-dark"><?php echo $sino_count; ?></a></td>
                                                         
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">3</th>
                                                         <td><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark">AstraZeneca </a></td>
                                                         <td ><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark">A0000001</a></td>
-                                                        <td><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark">5</a></td>
+                                                        <td><a href="viewBatch.php?vaccine=AstraZeneca" class="nav-item mb-0 text-center text-decoration-none text-dark"><?php echo $astra_count; ?></a></td>
                                                         
                                                     </tr>
                                                     </tbody>
