@@ -32,9 +32,20 @@
     echo $appointmentDate;
     echo $batch;
 
-    $query = "INSERT INTO appointments VALUES ('$batch','$email', NULL, '$status', '$appointmentDate', '$center', '$remarks' )";
+    $check = "SELECT * FROM appointments WHERE email = '$email'";
+    $amount = $connection->query($check);
+        if($amount -> num_rows > 0)
+        {
+            echo '<script type="text/javascript">';
+            echo 'alert("You already made an appointment.");';
+            echo 'window.location.href="status.php";';
+            echo '</script>';
+        }
+        else{
+            $query = "INSERT INTO appointments VALUES ('$batch','$email', NULL, '$status', '$appointmentDate', '$center', '$remarks' )";
+            $connection -> query($query);
+            header('location: status.php');
+        }
 
-    $connection -> query($query);
-
-    header('location: status.php');
+    //header('location: status.php');
 ?>
