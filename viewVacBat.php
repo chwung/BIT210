@@ -126,6 +126,11 @@ include("dbcon.php");
                                                                     $appointment_date = $appointment_data['appointment_date'];
                                                                     $status = $appointment_data['status'];
                                                                     $remarks = $appointment_data['remarks'];
+<<<<<<< HEAD
+=======
+                                                                    $email = $appointment_data['email'];
+                                                                    $num_str = sprintf("%03d", $row);
+>>>>>>> 448b365fc74cb3950f9f94fc70eeccfb0c5c0c89
                                                                     
                                                                     $name = $user_data['username'];
                                                                     $ic = $user_data['ic'];
@@ -145,12 +150,21 @@ include("dbcon.php");
                                                                     echo '</tr>';
                                                                     $row++;
 
+<<<<<<< HEAD
                                                                         
                                                                         echo '<div class="modal fade" id=';
                                                                         echo "$name";
                                                                         echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
                                                                         
                                                                         echo  "<form method='POST'> ";
+=======
+
+                                                                        echo '<div class="modal fade" id=';
+                                                                        echo "$email";
+                                                                        echo 'tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
+                                                                        echo  "<form method = 'POST'> ";
+
+>>>>>>> 448b365fc74cb3950f9f94fc70eeccfb0c5c0c89
                                                                         echo '<div class="modal-dialog modal-dialog-centered" role="document">';
                                                                         echo '<div class="modal-content">';
                                                                         echo '<div class="modal-header">';
