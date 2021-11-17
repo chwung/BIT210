@@ -95,11 +95,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                   ?>
                   <script>
                     function myFunction(){
-                    var centre = $('#choose').val().split('-')[0];
-                    var address = $('#choose').val().split('-')[1];
+                    var centre = $('#choose').val().split('/')[0];
+                    var address = $('#choose').val().split('/')[1];
 
                     document.getElementById("centre").value = centre;
-                    document.getElementById("address").value = address;
+                    document.getElementById("address").innerHTML = address;
                     }
                    </script>;
 
