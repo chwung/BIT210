@@ -100,8 +100,8 @@
                                 echo " id='batchNo' onclick='setminmaxDate()'>";
                                 echo "$id";
                                 echo "</td>";
-                                echo "<td id='quantity.$no'>$quantity</td>";
-                                echo "<td id='date.$no'>$date</td>";
+                                echo "<td>$quantity</td>";
+                                echo "<td>$date</td>";
                                 echo "</tr>";
 
 
