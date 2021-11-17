@@ -8,7 +8,6 @@ include("dbcon.php");
 
     $batch_id = $_GET['batch'];
     $vaccine = $_GET['vaccine'];
-    $quantity = $_GET['quantity'];
     $expiry_date = $_GET['expiry'];
     $_SESSION['batchID'] = $batch_id;
     $_SESSION['appVaccine'] = $vaccine;
