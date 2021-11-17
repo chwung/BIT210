@@ -92,6 +92,8 @@ $username = $_SESSION['staffUsername'];
                                                             $query = "SELECT * from pfizer_batch";
                                                             $result = $connection -> query($query);
                                                             $row = 1;
+
+                                                            
                                                             
                                                              if($result -> num_rows > 0){
                                                                 while($batch = $result -> fetch_assoc()){
@@ -99,6 +101,13 @@ $username = $_SESSION['staffUsername'];
                                                                 $batch_id = $batch['batch_id'];
                                                                 $expiry_date = $batch['expiry_date'];
                                                                 $quantity = $batch['quantity'];
+
+                                                                $sqlQuery = "SELECT * from appointments WHERE batch_id = '$batch_id' AND appointment_center = '$centre_name'";
+                                                                $data = $connection->query($sqlQuery);
+                                                                $batch_count = $data-> num_rows;
+
+                                                                $available = $quantity - $batch_count;
+
                                                                     if($centre == $centre_name){
                                                                         echo "<tr>";
                                                                         echo '<th scope="row">';
@@ -108,6 +117,7 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
                                                                         echo "$batch_id";
@@ -117,15 +127,17 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
-                                                                        echo "$quantity";
+                                                                        echo "$available";
                                                                         echo '</a>';
                                                                         echo '</td>';
                                                                         echo '<td>';
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
                                                                         echo "$expiry_date";
@@ -135,9 +147,10 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
-                                                                        echo "1";
+                                                                        echo "$batch_count";
                                                                         echo '</a>';
                                                                         echo '</td>';
                                                                         echo "</tr>";
@@ -158,6 +171,13 @@ $username = $_SESSION['staffUsername'];
                                                                 $batch_id = $batch['batch_id'];
                                                                 $expiry_date = $batch['expiry_date'];
                                                                 $quantity = $batch['quantity'];
+
+                                                                $sqlQuery = "SELECT * from appointments WHERE batch_id = '$batch_id' AND appointment_center = '$centre_name'";
+                                                                $data = $connection->query($sqlQuery);
+                                                                $batch_count = $data-> num_rows;
+
+                                                                $available = $quantity - $batch_count;
+
                                                                     if($centre == $centre_name){
                                                                         echo "<tr>";
                                                                         echo '<th scope="row">';
@@ -167,6 +187,7 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
                                                                         echo "$batch_id";
@@ -176,15 +197,17 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
-                                                                        echo "$quantity";
+                                                                        echo "$available";
                                                                         echo '</a>';
                                                                         echo '</td>';
                                                                         echo '<td>';
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
                                                                         echo "$expiry_date";
@@ -194,9 +217,10 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
-                                                                        echo "1";
+                                                                        echo "$batch_count";
                                                                         echo '</a>';
                                                                         echo '</td>';
                                                                         echo "</tr>";
@@ -217,6 +241,13 @@ $username = $_SESSION['staffUsername'];
                                                                 $batch_id = $batch['batch_id'];
                                                                 $expiry_date = $batch['expiry_date'];
                                                                 $quantity = $batch['quantity'];
+
+                                                                $sqlQuery = "SELECT * from appointments WHERE batch_id = '$batch_id' AND appointment_center = '$centre_name'";
+                                                                $data = $connection->query($sqlQuery);
+                                                                $batch_count = $data-> num_rows;
+
+                                                                $available = $quantity - $batch_count;
+
                                                                     if($centre == $centre_name){
                                                                         echo "<tr>";
                                                                         echo '<th scope="row">';
@@ -227,6 +258,7 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
                                                                         echo "&expiry=$expiry_date'";
+                                                                        echo "&quantity=$quantity";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
                                                                         echo "$batch_id";
                                                                         echo '</a>';
@@ -236,8 +268,9 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
                                                                         echo "&expiry=$expiry_date'";
+                                                                        echo "&quantity=$quantity";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
-                                                                        echo "$quantity";
+                                                                        echo "$available";
                                                                         echo '</a>';
                                                                         echo '</td>';
                                                                         echo '<td>';
@@ -245,6 +278,7 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
                                                                         echo "&expiry=$expiry_date'";
+                                                                        echo "&quantity=$quantity";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
                                                                         echo "$expiry_date";
                                                                         echo '</a>';
@@ -253,9 +287,10 @@ $username = $_SESSION['staffUsername'];
                                                                         echo "<a href='viewVacBat.php"; 
                                                                         echo "?batch=$batch_id";
                                                                         echo "&vaccine=$vaccine";
+                                                                        echo "&quantity=$quantity";
                                                                         echo "&expiry=$expiry_date'";
                                                                         echo 'class="mb-0 text-center text-decoration-none text-dark">';
-                                                                        echo "1";
+                                                                        echo "$batch_count";
                                                                         echo '</a>';
                                                                         echo '</td>';
                                                                         echo "</tr>";
