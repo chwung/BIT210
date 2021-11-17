@@ -8,6 +8,7 @@ include("dbcon.php");
 
     $batch_id = $_GET['batch'];
     $vaccine = $_GET['vaccine'];
+    $quantity = $_GET['quantity'];
     $expiry_date = $_GET['expiry'];
     $_SESSION['batchID'] = $batch_id;
     $_SESSION['appVaccine'] = $vaccine;
@@ -134,6 +135,8 @@ include("dbcon.php");
                                                                     echo "$name>";
                                                                     $num_str = sprintf("%03d", $row);
                                                                     $vaccinationID = $letter.$num_str;
+                                                                    $count = 0;
+                                                                   
                                                                     echo($vaccinationID);
                                                                     echo'</td>';
                                                                     echo "<td>$appointment_date</td>";
@@ -155,7 +158,7 @@ include("dbcon.php");
                                                                         echo '<div class="modal-dialog modal-dialog-centered" role="document">';
                                                                         echo '<div class="modal-content">';
                                                                         echo '<div class="modal-header">';
-                                                                        echo '<h5 class="modal-title" id="approvalLabel">VaccineID</h5>';
+                                                                        echo "<h5 class='modal-title' id='approvalLabel'>$vaccinationID</h5>";
                                                                         echo '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
                                                                         echo '<span aria-hidden="true">&times;</span>';
                                                                         echo '</button>';
