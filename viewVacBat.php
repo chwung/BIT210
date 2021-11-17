@@ -150,7 +150,11 @@ include("dbcon.php");
                                                                     echo '</tr>';
                                                                     $row++;
 
-                                                                        
+                                                                        if($status == 'Pending' || $status == 'Rejected'){
+                                                                            $option = 'Confirm';
+                                                                        }else if ($status == 'Confirmed' || $status == 'Administered'){
+                                                                            $option = 'Administered';
+                                                                        }
                                                                         echo '<div class="modal fade" id=';
                                                                         echo "$name";
                                                                         echo ' tabindex="-1" role="dialog" aria-labelledby="approvalLabel" aria-hidden="true">';
@@ -183,22 +187,21 @@ include("dbcon.php");
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '<div class="modal-footer">';
-                                                                        echo '<button type="submit" class="btn btn-secondary" name="reject" >Reject</button>';
-                                                                        echo '<button type="submit" class="btn btn-primary" name="submit" >Confirm</button>';
+                                                                        if($option == 'Confirm'){
+                                                                            echo '<button type="submit" class="btn btn-secondary" name="reject" >Reject</button>';
+                                                                        }
+                                                                        else if($option == 'Administered'){
+                                                                            echo '<textarea class=" w-100" name="remarks" id="remarks" rows="5" placeholder="remarks" required></textarea>';
+                                                                        }
+                                                                        echo "<button type='submit' class='btn btn-primary' name='$option' >$option</button>";
+                                                                        
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo '</div>';
                                                                         echo "</form>";
                                                                         echo '</div>' ;
 
-                                                                        if(isset($_POST['submit'])){
-                                                                            $query_data = "UPDATE appointments SET status='Confirmed' WHERE email = '$email'";
-                                                                            $connection->query($query_data);
-                                                                        }else if(isset($_POST['reject'])){
-                                                                            $query_data = "UPDATE appointments SET status= 'Rejected' WHERE email = '$email'";
-                                                                            $connection->query($query_data);
-                                                                        }
-                                                                        
+  
                                                                 }
                                                                 
 
