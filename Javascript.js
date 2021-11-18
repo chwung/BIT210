@@ -149,10 +149,10 @@ function addBatch(){
     }else if (quantity == "") {
         alert("Quantity must be filled out");
         return false;
+    }else{
+        alert("Batch has been added.");
+        return false;
     }
-
-
-    document.getElementById("batch1").innerHTML = batchNumber + " - " + vaccine + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + quantity;
     
 }
 

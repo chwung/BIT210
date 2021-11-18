@@ -80,14 +80,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     $query = "SELECT DISTINCT centre_name, centre_address FROM staffs";
                     $data = $connection -> query($query);
                     if($data -> num_rows > 0){
-                        $count = 1;
                         while($staff = $data -> fetch_assoc()){
                             $centre = $staff['centre_name'];
                             $add = $staff['centre_address'];
                             echo "<option value='$centre - $add'>";
                             echo "$centre"; 
                             echo '</option>';
-                            $count++;
                             
                         }
                     }
