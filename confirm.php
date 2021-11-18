@@ -5,6 +5,7 @@ include("dbcon.php");
 $remarks = $_POST['remarks'];
 $vacc = $_POST['vaccID'];
 $email = $_POST['email'];
+$quantity =$_SESSION['quantity'];
 $batch_id = $_SESSION['batchID'];
 $vaccine = $_SESSION['appVaccine'];
 $expiry_date = $_SESSION['appExp'];
@@ -21,6 +22,6 @@ if(isset($_POST['Confirm'])){
 }
 
 
-header("location: viewVacBat.php?batch=$batch_id&vaccine=$vaccine&expiry=$expiry_date");
+header("location: viewVacBat.php?batch=$batch_id&vaccine=$vaccine&quantity=$quantity&expiry=$expiry_date");
 
 ?>
