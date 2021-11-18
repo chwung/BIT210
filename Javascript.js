@@ -149,9 +149,6 @@ function addBatch(){
     }else if (quantity == "") {
         alert("Quantity must be filled out");
         return false;
-    }else{
-        alert("Batch has been added.");
-        return false;
     }
     
 }

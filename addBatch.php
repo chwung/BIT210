@@ -27,14 +27,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
         if(!is_numeric($batch_id) || strlen($batch_id) != 6){
             echo '<script type="text/javascript">';
-            echo 'alert("Batch ID should not have alphabet and only six numbers");';
             echo 'window.location.href="addBatch.php";';
+            echo 'alert("Batch ID should not have alphabet and only six numbers");';
             echo '</script>';
           
         }else if($quantity == 0){
                 echo '<script type="text/javascript">';
-                echo 'alert("Quantity should not be zero.");';
                 echo 'window.location.href="addBatch.php";';
+                echo 'alert("Quantity should not be zero.");';
                 echo '</script>';
                 
             }else {
@@ -57,6 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
                     if ($flag == 1){                                  
                         echo '<script type="text/javascript">';
+                        echo 'window.location.href="addBatch.php";';
                         echo 'alert("Batch already exists.");';
                         echo '</script>';
         
@@ -111,6 +112,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     }else{
                         $sqlQuery = "INSERT INTO astra_batch VALUES ('$centre_name','$vacbatchID', '$expiry_date', '$quantity')";
                         $result = $connection -> query($sqlQuery);  //execute query (php)
+
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Batch has been added.");';
+                        echo '</script>';
                     }
                 }
             }
