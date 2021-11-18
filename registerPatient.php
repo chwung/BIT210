@@ -85,7 +85,7 @@
         
         if($status -> num_rows > 0){                        //checks if there's any patients
             while ($row = $status -> fetch_assoc()) {
-                if ($email == $row["email"]){
+                if ($email == $row["email"] || $username ==$row['username']){
                     $flag = 1;
                     }
             }
@@ -93,7 +93,7 @@
     
         if ($flag == 1){                                    //user already exists
             echo '<script type="text/javascript">';
-            echo 'alert("Email already in use.")';
+            echo 'alert("Account already in use.")';
             echo '</script>';
             } else {                                        //user doer not exists
                 $sqlQuery = "INSERT INTO patients VALUES ('$username' , '$password', '$email', '$ic')";
