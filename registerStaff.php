@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     if ($flag == 1){ 
           echo '<script type="text/javascript">'; //user already exists
-          echo 'alert("Email already In Use.")';
+          echo 'alert("Account already In Use.")';
           echo '</script>';                                   
         } else {                                        //user doer not exists
             $sqlQuery = "INSERT INTO STAFFS VALUES ('$centre_name', '$centre_address', '$user_name', '$full_name', '$password', '$email', '$staff_id')";
