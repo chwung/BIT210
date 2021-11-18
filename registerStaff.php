@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     
     if($status -> num_rows > 0){                        //checks if there's any patients
         while ($row = $status -> fetch_assoc()) {
-            if ($email == $row["email"]){
+          if ($email == $row["email"] || $username ==$row['username'] || $staff_id == $row['staff_id']){
                 $flag = 1;
                 }
         }
