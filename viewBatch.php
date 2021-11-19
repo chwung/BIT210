@@ -106,7 +106,7 @@ $username = $_SESSION['staffUsername'];
                                                                 $data = $connection->query($sqlQuery);
                                                                 $batch_count = $data-> num_rows;
 
-                                                                $available = $quantity - $batch_count;
+                                                                $available = $quantity;
 
                                                                     if($centre == $centre_name){
                                                                         echo "<tr>";
@@ -176,7 +176,7 @@ $username = $_SESSION['staffUsername'];
                                                                 $data = $connection->query($sqlQuery);
                                                                 $batch_count = $data-> num_rows;
 
-                                                                $available = $quantity - $batch_count;
+                                                                $available = $quantity;
 
                                                                     if($centre == $centre_name){
                                                                         echo "<tr>";
@@ -246,7 +246,7 @@ $username = $_SESSION['staffUsername'];
                                                                 $data = $connection->query($sqlQuery);
                                                                 $batch_count = $data-> num_rows;
 
-                                                                $available = $quantity - $batch_count;
+                                                                $available = $quantity;
 
                                                                     if($centre == $centre_name){
                                                                         echo "<tr>";
