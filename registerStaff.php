@@ -83,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         while($staff = $data -> fetch_assoc()){
                             $centre = $staff['centre_name'];
                             $add = $staff['centre_address'];
-                            echo "<option value='$centre - $add'>";
+                            echo "<option value='$centre-$add'>";
                             echo "$centre"; 
                             echo '</option>';
                             
