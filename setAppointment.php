@@ -55,7 +55,7 @@
                   break;
         
                 case "Astra":
-                  $update = "UPDATE pfizer_batch SET quantity = quantity - 1 WHERE batch_id = '$batch'";
+                  $update = "UPDATE astra_batch SET quantity = quantity - 1 WHERE batch_id = '$batch'";
                   $connection -> query($update);
                   break;
               } 

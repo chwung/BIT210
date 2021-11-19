@@ -93,11 +93,7 @@
                                 $quantity = $batch['quantity'];
                                 $date = $batch['expiry_date'];
 
-                                $sqlQuery = "SELECT * FROM appointments WHERE batch_id = '$id'";
-                                $data = $connection -> query($sqlQuery);
-                                $count = $data -> num_rows;
-                                $amount = $quantity - $count;
-
+                              
                                 echo "<tr>";
                                 echo "<th scope='row'>$no</th>";
                                 echo "<td data-toggle='modal' data-target=#";
@@ -105,11 +101,11 @@
                                 echo " id='batchNo' onclick='setminmaxDate()'>";
                                 echo "$id";
                                 echo "</td>";
-                                echo "<td>$amount</td>";
+                                echo "<td>$quantity</td>";
                                 echo "<td>$date</td>";
                                 echo "</tr>";
 
-                                if($amount != 0){
+                                if($quantity != 0){
                                 echo '<div class="modal fade" id=';
                                 echo "$id"; 
                                 echo ' tabindex="-1" aria-labelledby="firstbatch" aria-hidden="true">';
