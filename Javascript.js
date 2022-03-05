@@ -235,7 +235,7 @@ function selectDate(){
 //generate a random ID in the status.html
 function generateID(){
     var vaccineID;
-    vaccineID = Math.floor((Math.random() * 10000000) + 1);
+    vaccineID = Math.floor((Math.random() * 100000) + 1);
 
     localStorage.setItem("vaccineID", vaccineID);
 
